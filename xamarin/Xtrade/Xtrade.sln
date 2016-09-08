@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Xtrade.Shared", "Xtrade.Shared\Xtrade.Shared.shproj", "{3484F004-B256-45B9-B244-5C091C861E83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xtrade.AndroidApp", "Xtrade.AndroidApp\Xtrade.AndroidApp.csproj", "{9E2DEDD0-B138-4E85-9A46-C6B46D99876F}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Xtrade.Shared\Xtrade.Shared.projitems*{3484f004-b256-45b9-b244-5c091c861e83}*SharedItemsImports = 13
+		Xtrade.Shared\Xtrade.Shared.projitems*{9e2dedd0-b138-4e85-9a46-c6b46d99876f}*SharedItemsImports = 4
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E2DEDD0-B138-4E85-9A46-C6B46D99876F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E2DEDD0-B138-4E85-9A46-C6B46D99876F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E2DEDD0-B138-4E85-9A46-C6B46D99876F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9E2DEDD0-B138-4E85-9A46-C6B46D99876F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E2DEDD0-B138-4E85-9A46-C6B46D99876F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E2DEDD0-B138-4E85-9A46-C6B46D99876F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
