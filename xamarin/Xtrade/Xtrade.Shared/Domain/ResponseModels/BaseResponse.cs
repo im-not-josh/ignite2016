@@ -18,7 +18,7 @@
 
         public bool IsValid()
         {
-            return string.IsNullOrWhiteSpace(this.ErrorMessage) && this.ErrorCode == 0;
+            return string.IsNullOrWhiteSpace(this.ErrorMessage) && this.ErrorCode == 0 && this.Result != null;
         }
     }
 }

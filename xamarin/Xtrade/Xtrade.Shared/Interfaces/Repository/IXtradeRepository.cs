@@ -3,9 +3,12 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using Domain.Models;
+    using Shared.Domain.Models;
 
     public interface IXtradeRepository
     {
         Task InsertRatesAsync(IList<IRate> newRates);
+
+        Task<IList<Rate>> GetAllRates();
     }
 }

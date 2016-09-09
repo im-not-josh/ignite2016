@@ -64,5 +64,10 @@
                 }
             });
         }
+
+        public async Task<IList<Rate>> GetAllRates()
+        {
+            return await this._databaseConnection.Table<Rate>().ToListAsync();
+        }
     }
 }
