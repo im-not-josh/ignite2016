@@ -23,6 +23,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Managers\WebServiceManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Repository\XtradeRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\CommonConstants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\ObjectExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\ResponseException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AllRatesViewModel.cs" />
   </ItemGroup>

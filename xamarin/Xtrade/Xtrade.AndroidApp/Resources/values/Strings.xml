@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Hello">Hello World, Click Me!</string>
-    <string name="ApplicationName">Xtrade</string>
+    <string name="applicationName">Xtrade</string>
+    <string name="allRatesLabel">Exchange Rates</string>
+    <string name="noRatesText">No Exchange Rates</string>
 </resources>
