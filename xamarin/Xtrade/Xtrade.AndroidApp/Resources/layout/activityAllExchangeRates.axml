@@ -3,6 +3,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/applicationToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Xtrade.Toolbar"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
     <TextView
         android:id="@+id/noRatesTextView"
         android:padding="@dimen/standardPaddingSize"
