@@ -2,11 +2,12 @@
 {
     using Android.App;
     using Android.OS;
+    using Android.Views;
     using Android.Widget;
     using Shared.Interfaces.ViewModels;
     using Toolbar = Android.Support.V7.Widget.Toolbar;
 
-    [Activity(Label = "@string/allRatesLabel", Theme = "@style/Xtrade.StandardActivity", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "@string/allRatesLabel", Theme = "@style/Xtrade", MainLauncher = true, Icon = "@drawable/icon")]
     public class AllExchangeRatesActivity : BaseActivity<IAllRatesViewModel>
     {
         private Toolbar applicationToolbar;
@@ -23,6 +24,10 @@
 
             this.SetSupportActionBar(this.applicationToolbar);
 
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
+            {
+                this.Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
+            }
         }
     }
 }
