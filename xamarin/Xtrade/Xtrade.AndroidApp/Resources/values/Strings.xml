@@ -3,4 +3,8 @@
     <string name="applicationName">Xtrade</string>
     <string name="allRatesLabel">Exchange Rates</string>
     <string name="noRatesText">No Exchange Rates</string>
+    <string name="flagContentDescriptionText">Rate Flag</string>
+    <string name="buysNotesText">Buys Notes</string>
+    <string name="buysChequesText">Buys Cheques</string>
+    <string name="sellsNotesText">Sells Notes</string>
 </resources>

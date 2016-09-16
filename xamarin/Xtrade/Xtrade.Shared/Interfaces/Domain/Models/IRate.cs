@@ -15,13 +15,13 @@
 
         string SmallestNote { get; set; }
 
-        double BuysNotes { get; set; }
+        decimal BuysNotes { get; set; }
 
-        double BuysCheques { get; set; }
+        decimal BuysCheques { get; set; }
 
-        double BuysPayments { get; set; }
+        decimal BuysPayments { get; set; }
 
-        double SellsNotes { get; set; }
+        decimal SellsNotes { get; set; }
 
         IList<string> AsbBuys { get; set; }
 

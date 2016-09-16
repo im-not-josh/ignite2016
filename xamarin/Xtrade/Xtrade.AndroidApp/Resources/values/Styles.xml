@@ -13,4 +13,19 @@
     <item name="android:statusBarColor">@color/primary_green_dark</item>
     <item name="android:navigationBarColor">@color/primary_green_dark</item>
   </style>
+  <style name="HeaderText" parent="@android:attr/textAppearanceSmall">
+    <item name="android:textColor">@color/accent_red_dark</item>
+    <item name="android:textSize">10sp</item>
+  </style>
+  <style name="HeaderTextNormal" parent="@android:attr/textAppearanceSmall">
+    <item name="android:textSize">10sp</item>
+  </style>
+  <style name="LargeText" parent="@android:attr/textAppearanceLarge">
+    <item name="android:textColor">@color/alternatvie_text_white</item>
+    <item name="android:textSize">20sp</item>
+  </style>
+  <style name="NormalText" parent="@android:attr/textAppearanceLarge">
+    <item name="android:textColor">@color/alternatvie_text_white</item>
+    <item name="android:textSize">15sp</item>
+  </style>
 </resources>

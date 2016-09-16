@@ -25,16 +25,16 @@
         public string SmallestNote { get; set; }
 
         [JsonProperty(PropertyName = "buysNotes")]
-        public double BuysNotes { get; set; }
+        public decimal BuysNotes { get; set; }
 
         [JsonProperty(PropertyName = "buysCheques")]
-        public double BuysCheques { get; set; }
+        public decimal BuysCheques { get; set; }
 
         [JsonProperty(PropertyName = "buysPayments")]
-        public double BuysPayments { get; set; }
+        public decimal BuysPayments { get; set; }
 
         [JsonProperty(PropertyName = "sellsNotes")]
-        public double SellsNotes { get; set; }
+        public decimal SellsNotes { get; set; }
 
         [JsonProperty(PropertyName = "asbBuys")]
         [Ignore]
