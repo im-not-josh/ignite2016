@@ -10,8 +10,6 @@
 
     public class XtradeRepository : IXtradeRepository
     {
-        private const string DeleteQuery = "delete from \"{0}\"";
-
         private readonly SQLiteAsyncConnection _databaseConnection;
 
         public XtradeRepository()
@@ -54,12 +52,10 @@
             {
                 if (newRates != null && newRates.Count > 0)
                 {
-                    transaction.Execute(DeleteQuery, typeof (Rate).Name);
-
                     foreach (IRate newRate in newRates)
                     {
                         newRate.DeviceModified = DateTime.UtcNow;
-                        transaction.Insert(newRate);
+                        transaction.InsertOrReplace(newRate);
                     }
                 }
             });

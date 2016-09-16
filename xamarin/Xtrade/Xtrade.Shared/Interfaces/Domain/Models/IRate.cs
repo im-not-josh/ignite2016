@@ -1,6 +1,7 @@
 ﻿namespace Xtrade.Shared.Interfaces.Domain.Models
 {
     using System;
+    using System.Collections.Generic;
 
     public interface IRate
     {
@@ -21,5 +22,9 @@
         double BuysPayments { get; set; }
 
         double SellsNotes { get; set; }
+
+        IList<string> AsbBuys { get; set; }
+
+        IList<string> AsbSells { get; set; }
     }
 }

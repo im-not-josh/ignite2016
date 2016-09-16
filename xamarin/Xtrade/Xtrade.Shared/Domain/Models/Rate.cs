@@ -1,6 +1,7 @@
 ﻿namespace Xtrade.Shared.Domain.Models
 {
     using System;
+    using System.Collections.Generic;
     using Interfaces.Domain.Models;
     using Newtonsoft.Json;
     using SQLite;
@@ -34,5 +35,13 @@
 
         [JsonProperty(PropertyName = "sellsNotes")]
         public double SellsNotes { get; set; }
+
+        [JsonProperty(PropertyName = "asbBuys")]
+        [Ignore]
+        public IList<string> AsbBuys { get; set; }
+
+        [JsonProperty(PropertyName = "asbSells")]
+        [Ignore]
+        public IList<string> AsbSells { get; set; }
     }
 }

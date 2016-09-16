@@ -82,7 +82,14 @@
         private void GenerateHttpHeaders(HttpWebRequest webRequest)
         {
             Dictionary<string, string> headerValues = new Dictionary<string, string>();
-            string authenticationToken = "";
+
+            string authenticationToken;
+
+#if __ANDROID__
+            authenticationToken = "l7xxf294806c97a445faa3aa940401e492af";
+#else
+            authenticationToken = "l7xx8573e82a108846e2a5d4bf7631d89e41";
+#endif
 
             if (!string.IsNullOrWhiteSpace(authenticationToken))
             {
@@ -125,6 +132,10 @@
                 responseString = await reader.ReadToEndAsync();
                 responseStream.Close();
 
+#if DEBUG
+                Console.WriteLine("Json Response: " + responseMessage);
+#endif
+
                 if (string.IsNullOrWhiteSpace(responseString) && webResponse.StatusCode == HttpStatusCode.NoContent)
                 {
                     webResponse.Close();
@@ -144,6 +155,8 @@
 
                 try
                 {
+                    responseString = responseString.Replace("[]", "\"\"");
+
                     response = JsonConvert.DeserializeObject<T>(responseString, GenerateJsonSettings<T>(customConverters));
 
                     if (response == null)
@@ -170,7 +183,7 @@
 
         private static JsonSerializerSettings GenerateJsonSettings<T>(JsonConverter[] customConverters)
         {
-            int length = customConverters != null ? customConverters.Length + 3 : 3;
+            int length = customConverters != null ? customConverters.Length + 2 : 2;
             JsonConverter[] converters = new JsonConverter[length];
 
             if (customConverters != null && customConverters.Length > 0)
@@ -182,6 +195,7 @@
             }
 
             converters[length - 2] = new BaseResponseConverter<T>();
+            converters[length - 1] = new ListConverter<T>();
 
             JsonSerializerSettings jsonSettings = Configuration.JsonSettings;
             jsonSettings.Converters = converters;

@@ -7,10 +7,10 @@
     using Interfaces.Repository;
     using Interfaces.ViewModels;
     using Repository;
-    using Shared.Domain.Models;
-    using Shared.Interfaces.Domain.Models;
-    using Shared.Interfaces.Managers;
-    using Shared.Managers;
+    using Domain.Models;
+    using Interfaces.Domain.Models;
+    using Interfaces.Managers;
+    using Managers;
     using ViewModels;
 
     public class BootStrapper
@@ -21,7 +21,8 @@
 
             containerBuilder.Register(n => new Rate()).As<IRate>();
             containerBuilder.Register(n => new List<IRate>()).As<IList<IRate>>();
-            containerBuilder.Register(n => new BaseResponse<List<IRate>>()).As<IBaseResponse<List<IRate>>>();
+            containerBuilder.Register(n => new RatesWrapper()).As<IRatesWrapper>();
+            containerBuilder.Register(n => new BaseResponse<IRatesWrapper>()).As<IBaseResponse<IRatesWrapper>>();
 
             containerBuilder.RegisterType<XtradeRepository>().As<IXtradeRepository>().SingleInstance();
             containerBuilder.RegisterType<WebServiceManager>().As<IWebServiceManager>().SingleInstance();

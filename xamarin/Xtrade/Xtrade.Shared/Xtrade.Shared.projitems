@@ -11,12 +11,16 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)BootStrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Configuration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Converters\ListConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Domain\Converters\BaseResponseConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Converters\RatesWrapperConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Domain\Converters\RateConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Domain\Models\Rate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Domain\ResponseModels\BaseResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\ResponseModels\RatesWrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\Domain\Models\IRate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\Domain\ResponseModels\IBaseResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\Domain\ResponseModels\IRatesWrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\Managers\IWebServiceManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\Repository\IXtradeRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ViewModels\IAllRatesViewModel.cs" />

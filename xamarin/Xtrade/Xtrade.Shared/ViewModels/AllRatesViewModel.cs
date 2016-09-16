@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Threading.Tasks;
     using Domain.Converters;
     using Domain.Models;
     using Interfaces.Domain.Models;
@@ -57,21 +56,22 @@
         public async void RefreshRates()
         {
             this.IsDataRefreshing = true;
-            IBaseResponse<IList<IRate>> newRatesResponse = await this._webServiceManager.GetAndParse<IList<IRate>>("exchange-rates", new JsonConverter[] { new RateConverter() });
+            IBaseResponse<IRatesWrapper> newRatesResponse = await this._webServiceManager.GetAndParse<IRatesWrapper>("exchange-rates", new JsonConverter[] { new RateConverter(), new RatesWrapperConverter() });
 
-            if (newRatesResponse != null && newRatesResponse.IsValid() && newRatesResponse.Result.Count > 0)
+            if (newRatesResponse != null && newRatesResponse.IsValid() && newRatesResponse.Result.Value != null && newRatesResponse.Result.Value.Count > 0)
             {
-                this.AllRates = newRatesResponse.Result.OrderedRatesList();
+                this.AllRates = newRatesResponse.Result.Value.OrderedRatesList();
                 await this._xtradeRepository.InsertRatesAsync(this.AllRates);
                 this.OnViewModelDataChanged?.Invoke(this, null);
+                this.IsDataRefreshing = false;
                 this.OnRefreshSuccess?.Invoke(this, "Rates updated");
             }
             else
             {
+                this.IsDataRefreshing = false;
                 this.OnRefreshError?.Invoke(this, "Could not refresh exchang rates");
             }
-
-            this.IsDataRefreshing = false;
+           
         }
     }
 }
