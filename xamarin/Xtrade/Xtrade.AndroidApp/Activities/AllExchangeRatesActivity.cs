@@ -40,6 +40,7 @@
 
             this.swipeRefreshLayout.Refresh += this.SwipeRefreshLayoutOnRefresh;
 
+            this.swipeRefreshLayout.Refreshing = true;
             this.ViewModel.LoadData();
         }
         
