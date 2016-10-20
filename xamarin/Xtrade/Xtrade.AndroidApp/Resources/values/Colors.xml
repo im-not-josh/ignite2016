@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <resources>
-  <color name="primary_green">#2B8242</color>
-  <color name="primary_green_dark">#126427</color>
-  <color name="accent_red_dark">#862418</color>
+  <color name="primary_blue">#3F51B5</color>
+  <color name="primary_blue_dark">#303F9F</color>
+  <color name="accent_orange_dark">#FF5722</color>
   <color name="primary_text_black">#212121</color>
   <color name="secondary_text_grey">#757575</color>
   <color name="alternatvie_text_white">#FFFFFF</color>

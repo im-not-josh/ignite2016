@@ -62,11 +62,9 @@ namespace Xtrade.AndroidApp.Adapters
                     viewHolder.ForexFlagImageView.SetImageDrawable(this._activity.Resources.GetDrawable(flagID));
                 }
 
-                viewHolder.CountryNameTextView.Text = rate.Description;
                 viewHolder.ForexCodeTextView.Text = rate.CurrencyCode;
-                viewHolder.Rate1TextView.Text = rate.BuysNotes.ToString("C");
-                viewHolder.Rate2TextView.Text = rate.BuysCheques.ToString("C");
-                viewHolder.Rate3TextView.Text = rate.SellsNotes.ToString("C");
+                viewHolder.BuyRateTextView.Text = rate.BuysNotes.ToString("C");
+                viewHolder.SellRateTextView.Text = rate.SellsNotes.ToString("C");
             }
         }
     }
