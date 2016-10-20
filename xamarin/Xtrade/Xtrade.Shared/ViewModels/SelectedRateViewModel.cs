@@ -1,6 +1,7 @@
 ﻿namespace Xtrade.Shared.ViewModels
 {
     using System;
+    using System.Linq;
     using Domain.Converters;
     using Interfaces.Domain.Models;
     using Interfaces.Domain.ResponseModels;
@@ -44,11 +45,11 @@
         public async void RefreshSelectedRate()
         {
             this.IsDataRefreshing = true;
-            IBaseResponse<IRateWrapper> newRatesResponse = await this._webServiceManager.GetAndParse<IRateWrapper>("exchange-rates?currecnyCode=" + this._selectedRateCode, new JsonConverter[] { new RateConverter(), new RateWrapperConverter() });
+            IBaseResponse<IRatesWrapper> newRatesResponse = await this._webServiceManager.GetAndParse<IRatesWrapper>("exchange-rates?currecnyCode=" + this._selectedRateCode, new JsonConverter[] { new RateConverter(), new RatesWrapperConverter() });
 
-            if (newRatesResponse != null && newRatesResponse.IsValid() && newRatesResponse.Result.Value != null)
+            if (newRatesResponse != null && newRatesResponse.IsValid() && newRatesResponse.Result.Value != null && newRatesResponse.Result.Value.Count > 0)
             {
-                this.SelectedRate = newRatesResponse.Result.Value;
+                this.SelectedRate = newRatesResponse.Result.Value.FirstOrDefault();
                 await this._xtradeRepository.InsertRateAsync(this.SelectedRate);
                 this.OnViewModelDataChanged?.Invoke(this, null);
                 this.IsDataRefreshing = false;

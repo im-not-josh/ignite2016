@@ -23,7 +23,6 @@
             containerBuilder.Register(n => new List<IRate>()).As<IList<IRate>>();
             containerBuilder.Register(n => new RatesWrapper()).As<IRatesWrapper>();
             containerBuilder.Register(n => new BaseResponse<IRatesWrapper>()).As<IBaseResponse<IRatesWrapper>>();
-            containerBuilder.Register(n => new BaseResponse<IRateWrapper>()).As<IBaseResponse<IRateWrapper>>();
 
             containerBuilder.RegisterType<XtradeRepository>().As<IXtradeRepository>().SingleInstance();
             containerBuilder.RegisterType<WebServiceManager>().As<IWebServiceManager>().SingleInstance();
