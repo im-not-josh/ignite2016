@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="applicationName">Xtrade</string>
-    <string name="allRatesLabel">Exchange Rates</string>
+  <string name="applicationName">Xtrade</string>
+  <string name="allRatesLabel">Exchange Rates</string>
   <string name="exchangeRateDetails">Exchange Rate Details</string>
-    <string name="noRatesText">No Exchange Rates</string>
-    <string name="flagContentDescriptionText">Rate Flag</string>
-    <string name="buysNotesText">Buys Notes</string>
-    <string name="sellsNotesText">Sells Notes</string>
+  <string name="noRatesText">No Exchange Rates</string>
+  <string name="flagContentDescriptionText">Rate Flag</string>
+    
+  <string name="buysNotesText">Buys Notes</string>
+  <string name="sellsNotesText">Sells Notes</string>
+  <string name="buysChequesText">Buys Cheques</string>
+  <string name="buysPaymentsText">Buys Payments</string>
+  <string name="sellsChequesText">Sells Cheques</string>
+  <string name="smallestNoteText">Smallest Note</string>
 </resources>
