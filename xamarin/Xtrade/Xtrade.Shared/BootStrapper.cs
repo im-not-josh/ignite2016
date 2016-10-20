@@ -28,6 +28,7 @@
             containerBuilder.RegisterType<WebServiceManager>().As<IWebServiceManager>().SingleInstance();
 
             containerBuilder.RegisterType<AllRatesViewModel>().As<IAllRatesViewModel>().SingleInstance();
+            containerBuilder.RegisterType<SelectedRateViewModel>().As<ISelectedRateViewModel>().SingleInstance();
 
             Container = containerBuilder.Build();
         }

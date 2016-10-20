@@ -69,9 +69,8 @@
             else
             {
                 this.IsDataRefreshing = false;
-                this.OnRefreshError?.Invoke(this, "Could not refresh exchang rates");
+                this.OnRefreshError?.Invoke(this, "Could not refresh exchange rates");
             }
-           
         }
     }
 }

@@ -61,9 +61,19 @@
             });
         }
 
+        public async Task InsertRateAsync(IRate newRate)
+        {
+            await this._databaseConnection.UpdateAsync(newRate);
+        }
+
         public async Task<IList<Rate>> GetAllRates()
         {
             return await this._databaseConnection.Table<Rate>().ToListAsync();
+        }
+
+        public async Task<Rate> GetRateByCode(string code)
+        {
+            return await this._databaseConnection.Table<Rate>().Where(i => i.CurrencyCode == code).FirstOrDefaultAsync();
         }
     }
 }

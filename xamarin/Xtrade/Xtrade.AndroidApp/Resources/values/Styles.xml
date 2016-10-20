@@ -1,31 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <resources>
   <style name="Xtrade" parent="Xtrade.Base" />
-  <style name="Xtrade.Base" parent="@style/Theme.AppCompat">
+  <style name="Xtrade.Base" parent="@style/Theme.AppCompat.Light.DarkActionBar">
     <item name="windowActionBar">false</item>
     <item name="windowNoTitle">true</item>
-    <item name="colorPrimary">@color/primary_green</item>
-    <item name="colorPrimaryDark">@color/primary_green_dark</item>
-    <item name="colorAccent">@color/accent_red_dark</item>
-    <item name="colorButtonNormal">@color/primary_green_dark</item>
+    <item name="colorPrimary">@color/primary_blue</item>
+    <item name="colorPrimaryDark">@color/primary_blue_dark</item>
+    <item name="colorAccent">@color/accent_orange_dark</item>
+    <item name="colorButtonNormal">@color/primary_blue_dark</item>
     <item name="android:textColorPrimary">@color/primary_text_black</item>
     <item name="android:textColor">@color/alternatvie_text_white</item>
-    <item name="android:statusBarColor">@color/primary_green_dark</item>
-    <item name="android:navigationBarColor">@color/primary_green_dark</item>
+    <item name="android:statusBarColor">@color/primary_blue_dark</item>
+    <item name="android:navigationBarColor">@color/primary_blue_dark</item>
   </style>
   <style name="HeaderText" parent="@android:attr/textAppearanceSmall">
-    <item name="android:textColor">@color/accent_red_dark</item>
-    <item name="android:textSize">10sp</item>
-  </style>
-  <style name="HeaderTextNormal" parent="@android:attr/textAppearanceSmall">
-    <item name="android:textSize">10sp</item>
+    <item name="android:textColor">@color/accent_orange_dark</item>
+    <item name="android:textSize">12sp</item>
   </style>
   <style name="LargeText" parent="@android:attr/textAppearanceLarge">
-    <item name="android:textColor">@color/alternatvie_text_white</item>
-    <item name="android:textSize">20sp</item>
+    <item name="android:textColor">@color/primary_text_black</item>
+    <item name="android:textSize">24sp</item>
   </style>
   <style name="NormalText" parent="@android:attr/textAppearanceLarge">
-    <item name="android:textColor">@color/alternatvie_text_white</item>
-    <item name="android:textSize">15sp</item>
+    <item name="android:textColor">@color/primary_text_black</item>
+    <item name="android:textSize">22sp</item>
+  </style>
+  <style name="Divider">
+    <item name="android:layout_height">1px</item>
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:background">@color/divider_grey</item>
   </style>
 </resources>

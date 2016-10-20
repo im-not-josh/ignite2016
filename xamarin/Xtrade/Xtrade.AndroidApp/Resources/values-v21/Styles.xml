@@ -10,6 +10,6 @@
   <style name="Xtrade.Toolbar" parent="ThemeOverlay.AppCompat.Dark">
     <item name="android:textColorPrimary">@color/alternatvie_text_white</item>
     <item name="android:textColorSecondary">@color/alternatvie_text_white</item>
-    <item name="android:background">@color/primary_green</item>
+    <item name="android:background">@color/primary_blue</item>
   </style>
 </resources>

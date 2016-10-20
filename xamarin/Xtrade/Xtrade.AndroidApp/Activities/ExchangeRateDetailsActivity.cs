@@ -1,0 +1,141 @@
+﻿namespace Xtrade.AndroidApp.Activities
+{
+    using System;
+    using Android.App;
+    using Android.OS;
+    using Android.Support.Design.Widget;
+    using Android.Support.V4.Widget;
+    using Android.Views;
+    using Android.Widget;
+    using Shared.Interfaces.ViewModels;
+    using Toolbar = Android.Support.V7.Widget.Toolbar;
+
+    [Activity(Label = "@string/exchangeRateDetails", Theme = "@style/Xtrade", Icon = "@drawable/icon")]
+    public class ExchangeRateDetailsActivity : BaseActivity<ISelectedRateViewModel>
+    {
+        private Toolbar applicationToolbar;
+        private SwipeRefreshLayout swipeRefreshLayout;
+        private TextView forexCodeTextView;
+        private TextView forexCountryTextView;
+        private ImageView forexFlagImageView;
+        private string _selectedRateCode;
+
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+
+            this.SetContentView(Resource.Layout.activity_exchange_rate_details);
+
+            this.applicationToolbar = this.FindViewById<Toolbar>(Resource.Id.applicationToolbar);
+            this.swipeRefreshLayout = this.FindViewById<SwipeRefreshLayout>(Resource.Id.swipeRefreshLayout);
+            this.forexCodeTextView = this.FindViewById<TextView>(Resource.Id.forexCodeTextView);
+            this.forexCountryTextView = this.FindViewById<TextView>(Resource.Id.forexCountryTextView);
+            this.forexFlagImageView = this.FindViewById<ImageView>(Resource.Id.forexFlagImageView);
+
+            this.SetSupportActionBar(this.applicationToolbar);
+            this.SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+
+            Bundle bundle = this.Intent.Extras ?? savedInstanceState;
+
+            if (bundle != null && bundle.ContainsKey(Helpers.AndroidConstants.SelectedRateCode))
+            {
+                this._selectedRateCode = bundle.GetString(Helpers.AndroidConstants.SelectedRateCode, "");
+
+                if (string.IsNullOrWhiteSpace(this._selectedRateCode))
+                {
+                    this.Finish();
+                }
+            }
+            else
+            {
+                this.Finish();
+            }
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    this.Finish();
+                    return true;
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+
+            this.ViewModel.OnViewModelDataChanged += this.ViewModelDataChanged;
+            this.ViewModel.OnRefreshError += this.ViewModelRefreshError;
+            this.ViewModel.OnRefreshSuccess += this.ViewModelRefreshSuccess;
+
+            this.swipeRefreshLayout.Refresh += this.SwipeRefreshLayoutOnRefresh;
+
+            this.swipeRefreshLayout.Refreshing = true;
+            this.ViewModel.LoadData(this._selectedRateCode);
+        }
+        
+        protected override void OnPause()
+        {
+            base.OnPause();
+
+            this.ViewModel.OnViewModelDataChanged -= this.ViewModelDataChanged;
+            this.ViewModel.OnRefreshError -= this.ViewModelRefreshError;
+            this.ViewModel.OnRefreshSuccess -= this.ViewModelRefreshSuccess;
+
+            this.swipeRefreshLayout.Refresh -= this.SwipeRefreshLayoutOnRefresh;
+        }
+
+        protected override void OnSaveInstanceState(Bundle outgoingState)
+        {
+            outgoingState.PutString(Helpers.AndroidConstants.SelectedRateCode, this._selectedRateCode);
+            base.OnSaveInstanceState(outgoingState);
+        }
+
+        private void UpdateViews()
+        {
+            this.swipeRefreshLayout.Refreshing = this.ViewModel.IsDataRefreshing;
+
+            this.forexCodeTextView.Text = this.ViewModel.SelectedRate.CurrencyCode;
+            this.forexCountryTextView.Text = this.ViewModel.SelectedRate.Description;
+
+            int flagID = this.Resources.GetIdentifier("flag_" + this.ViewModel.SelectedRate.CurrencyCode.ToLower(), "drawable", this.PackageName);
+
+            if (flagID == 0)
+            {
+                this.forexFlagImageView.Visibility = ViewStates.Gone;
+            }
+            else
+            {
+                this.forexFlagImageView.Visibility = ViewStates.Visible;
+                this.forexFlagImageView.SetImageDrawable(this.Resources.GetDrawable(flagID));
+            }
+        }
+
+        private void SwipeRefreshLayoutOnRefresh(object sender, EventArgs eventArgs)
+        {
+            this.swipeRefreshLayout.Refreshing = true;
+            this.ViewModel.RefreshSelectedRate();
+        }
+
+        private void ViewModelDataChanged(object sender, EventArgs eventArgs)
+        {
+            this.UpdateViews();
+        }
+
+        private void ViewModelRefreshError(object sender, string s)
+        {
+            this.swipeRefreshLayout.Refreshing = this.ViewModel.IsDataRefreshing;
+            Snackbar.Make(this.swipeRefreshLayout, s, Snackbar.LengthLong).Show();
+        }
+
+        private void ViewModelRefreshSuccess(object sender, string s)
+        {
+            this.swipeRefreshLayout.Refreshing = this.ViewModel.IsDataRefreshing;
+            Snackbar.Make(this.swipeRefreshLayout, s, Snackbar.LengthLong).Show();
+        }
+    }
+}

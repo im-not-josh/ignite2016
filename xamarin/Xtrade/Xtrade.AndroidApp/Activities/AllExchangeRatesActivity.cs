@@ -3,6 +3,7 @@
     using System;
     using Adapters;
     using Android.App;
+    using Android.Content;
     using Android.OS;
     using Android.Support.Design.Widget;
     using Android.Support.V4.Widget;
@@ -78,7 +79,13 @@
 
                 if (this.ratesRecyclerAdapter == null)
                 {
-                    this.ratesRecyclerAdapter = new RatesRecyclerAdapter(this, this.ViewModel.AllRates, null);
+                    this.ratesRecyclerAdapter = new RatesRecyclerAdapter(this, this.ViewModel.AllRates, i =>
+                    {
+                        Intent detailsIntent = new Intent(this, typeof(ExchangeRateDetailsActivity));
+                        detailsIntent.PutExtra(Helpers.AndroidConstants.SelectedRateCode, this.ViewModel.AllRates[i].CurrencyCode);
+                        this.StartActivity(detailsIntent);
+                    });
+
                     this.ratesRecyclerView.SetAdapter(this.ratesRecyclerAdapter);
                     this.ratesRecyclerView.SetLayoutManager(this.ratesRecylerViewLayoutManager);
                 }
