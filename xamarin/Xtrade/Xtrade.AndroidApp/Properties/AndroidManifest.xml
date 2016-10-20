@@ -2,5 +2,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="nz.co.fendustries.xtradeXamarin" android:versionCode="1" android:versionName="1.0" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="15" />
 	<uses-permission android:name="android.permission.INTERNET" />
-	<application android:label="@string/applicationName" android:theme="@style/Xtrade" android:icon="@drawable/Icon"></application>
+	<application android:label="@string/applicationName" android:theme="@style/Xtrade" android:icon="@mipmap/ic_launcher"></application>
 </manifest>

@@ -10,7 +10,7 @@
     using Shared.Interfaces.ViewModels;
     using Toolbar = Android.Support.V7.Widget.Toolbar;
 
-    [Activity(Label = "@string/exchangeRateDetails", Theme = "@style/Xtrade", Icon = "@drawable/icon")]
+    [Activity(Label = "@string/exchangeRateDetails", Theme = "@style/Xtrade")]
     public class ExchangeRateDetailsActivity : BaseActivity<ISelectedRateViewModel>
     {
         private Toolbar applicationToolbar;
