@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/swipeRefreshLayout"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
-        android:orientation="vertical"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/applicationToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/Xtrade.Toolbar"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/applicationToolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:theme="@style/Xtrade.Toolbar"
-            android:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -50,9 +50,9 @@
                             android:layout_height="wrap_content" />
                     </LinearLayout>
                 </LinearLayout>
-                  <View
-                    android:paddingTop="@dimen/standardPaddingSize"
-        style="@style/Divider" />
+                <View
+                    android:layout_marginTop="@dimen/standardPaddingSize"
+                    style="@style/Divider" />
                 <TextView
                     android:id="@+id/buyNotesTextView"
                     style="@style/NormalText"
@@ -120,5 +120,5 @@
                     android:layout_height="wrap_content" />
             </LinearLayout>
         </ScrollView>
-    </LinearLayout>
-</android.support.v4.widget.SwipeRefreshLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>
