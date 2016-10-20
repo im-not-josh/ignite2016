@@ -10,5 +10,9 @@
         Task InsertRatesAsync(IList<IRate> newRates);
 
         Task<IList<Rate>> GetAllRates();
+
+        Task InsertRateAsync(IRate newRate);
+
+        Task<Rate> GetRateByCode(string code);
     }
 }

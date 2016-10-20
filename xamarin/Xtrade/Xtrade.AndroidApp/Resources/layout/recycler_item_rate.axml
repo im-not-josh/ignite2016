@@ -6,63 +6,64 @@
     android:paddingTop="@dimen/rateVerticalPaddingSize"
     android:paddingLeft="@dimen/rateHorizontalRightPaddingSize"
     android:paddingRight="@dimen/rateHorizontalRightPaddingSize">
-      <LinearLayout
+    <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/rateVerticalPaddingSize">
-    <ImageView
-        android:id="@+id/forexFlagImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:contentDescription="@string/flagContentDescriptionText" />
-    <TextView
-        android:id="@+id/forexCodeTextView"
-        android:layout_gravity="center"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:paddingLeft="@dimen/rateHorizontalRightPaddingSize"
-        android:paddingRight="@dimen/rateHorizontalRightPaddingSize"
-        android:layout_height="wrap_content"
-        style="@style/LargeText" />
-    <LinearLayout
-        android:orientation="vertical"
-        android:gravity="center"
-        android:paddingRight="@dimen/rateHorizontalRightPaddingSize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/buyRateTextView"
-            style="@style/NormalText"
+        android:paddingBottom="@dimen/rateVerticalPaddingSize">
+        <ImageView
+            android:id="@+id/forexFlagImageView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:contentDescription="@string/flagContentDescriptionText" />
         <TextView
-            android:id="@+id/buyRateHeaderTextView"
-            android:text="@string/buysNotesText"
-            android:paddingTop="@dimen/rateVerticalTopPaddingSize"
-            style="@style/HeaderText"
+            android:id="@+id/forexCodeTextView"
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/rateHorizontalRightPaddingSize"
+            android:paddingRight="@dimen/rateHorizontalRightPaddingSize"
+            android:layout_height="wrap_content"
+            style="@style/LargeText" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingRight="@dimen/rateHorizontalRightPaddingSize"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/buyRateTextView"
+                style="@style/NormalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/buyRateHeaderTextView"
+                android:text="@string/buysNotesText"
+                android:paddingTop="@dimen/rateVerticalTopPaddingSize"
+                style="@style/HeaderText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/sellRateTextView"
+                style="@style/NormalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/sellRateHeaderTextView"
+                android:text="@string/sellsNotesText"
+                android:paddingTop="@dimen/rateVerticalTopPaddingSize"
+                style="@style/HeaderText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/sellRateTextView"
-            style="@style/NormalText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:id="@+id/sellRateHeaderTextView"
-            android:text="@string/sellsNotesText"
-            android:paddingTop="@dimen/rateVerticalTopPaddingSize"
-            style="@style/HeaderText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-      </LinearLayout>
-        <View style="@style/Divider"/>
+    <View
+        style="@style/Divider" />
 </LinearLayout>

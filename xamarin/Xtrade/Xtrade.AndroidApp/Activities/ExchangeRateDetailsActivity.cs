@@ -3,7 +3,6 @@
     using System;
     using Adapters;
     using Android.App;
-    using Android.Content;
     using Android.OS;
     using Android.Support.Design.Widget;
     using Android.Support.V4.Widget;
@@ -13,29 +12,45 @@
     using Shared.Interfaces.ViewModels;
     using Toolbar = Android.Support.V7.Widget.Toolbar;
 
-    [Activity(Label = "@string/allRatesLabel", Theme = "@style/Xtrade", MainLauncher = true, Icon = "@drawable/icon")]
-    public class AllExchangeRatesActivity : BaseActivity<IAllRatesViewModel>
+    [Activity(Label = "@string/exchangeRateDetails", Theme = "@style/Xtrade", MainLauncher = true, Icon = "@drawable/icon")]
+    public class ExchangeRateDetailsActivity : BaseActivity<ISelectedRateViewModel>
     {
         private Toolbar applicationToolbar;
-        private TextView noRatesTextView;
         private SwipeRefreshLayout swipeRefreshLayout;
-        private RecyclerView ratesRecyclerView;
-        private RecyclerView.LayoutManager ratesRecylerViewLayoutManager;
-        private RatesRecyclerAdapter ratesRecyclerAdapter;
+        private TextView forexCodeTextView;
+        private TextView forexCountryTextView;
+        private ImageView forexFlagImageView;
+        private string _selectedRateCode;
 
-        protected override void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle savedInstanceState)
         {
-            base.OnCreate(bundle);
+            base.OnCreate(savedInstanceState);
 
-            this.SetContentView(Resource.Layout.activity_all_exchange_rates);
+            this.SetContentView(Resource.Layout.activity_exchange_rate_details);
 
             this.applicationToolbar = this.FindViewById<Toolbar>(Resource.Id.applicationToolbar);
-            this.noRatesTextView = this.FindViewById<TextView>(Resource.Id.noRatesTextView);
             this.swipeRefreshLayout = this.FindViewById<SwipeRefreshLayout>(Resource.Id.swipeRefreshLayout);
-            this.ratesRecyclerView = this.FindViewById<RecyclerView>(Resource.Id.ratesRecyclerView);
-            this.ratesRecylerViewLayoutManager = new LinearLayoutManager(this);
+            this.forexCodeTextView = this.FindViewById<TextView>(Resource.Id.forexCodeTextView);
+            this.forexCountryTextView = this.FindViewById<TextView>(Resource.Id.forexCountryTextView);
+            this.forexFlagImageView = this.FindViewById<ImageView>(Resource.Id.forexFlagImageView);
 
             this.SetSupportActionBar(this.applicationToolbar);
+
+            Bundle bundle = this.Intent.Extras ?? savedInstanceState;
+
+            if (bundle != null && bundle.ContainsKey(Helpers.Constants.SelectedRateCode))
+            {
+                this._selectedRateCode = bundle.GetString(Helpers.Constants.SelectedRateCode, "");
+
+                if (string.IsNullOrWhiteSpace(this._selectedRateCode))
+                {
+                    this.Finish();
+                }
+            }
+            else
+            {
+                this.Finish();
+            }
         }
 
         protected override void OnResume()
@@ -49,7 +64,7 @@
             this.swipeRefreshLayout.Refresh += this.SwipeRefreshLayoutOnRefresh;
 
             this.swipeRefreshLayout.Refreshing = true;
-            this.ViewModel.LoadData();
+            this.ViewModel.LoadData(this._selectedRateCode);
         }
         
         protected override void OnPause()
@@ -63,43 +78,36 @@
             this.swipeRefreshLayout.Refresh -= this.SwipeRefreshLayoutOnRefresh;
         }
 
+        protected override void OnSaveInstanceState(Bundle outgoingState)
+        {
+            outgoingState.PutString(Helpers.Constants.SelectedRateCode, this._selectedRateCode);
+            base.OnSaveInstanceState(outgoingState);
+        }
+
         private void UpdateViews()
         {
             this.swipeRefreshLayout.Refreshing = this.ViewModel.IsDataRefreshing;
 
-            if (this.ViewModel.AllRates == null || this.ViewModel.AllRates.Count == 0)
+            this.forexCodeTextView.Text = this.ViewModel.SelectedRate.CurrencyCode;
+            this.forexCountryTextView.Text = this.ViewModel.SelectedRate.Description;
+
+            int flagID = this.Resources.GetIdentifier("flag_" + this.ViewModel.SelectedRate.CurrencyCode.ToLower(), "drawable", this.PackageName);
+
+            if (flagID == 0)
             {
-                this.noRatesTextView.Visibility = ViewStates.Visible;
-                this.ratesRecyclerView.Visibility = ViewStates.Gone;
+                this.forexFlagImageView.Visibility = ViewStates.Gone;
             }
             else
             {
-                this.noRatesTextView.Visibility = ViewStates.Gone;
-                this.ratesRecyclerView.Visibility = ViewStates.Visible;
-
-                if (this.ratesRecyclerAdapter == null)
-                {
-                    this.ratesRecyclerAdapter = new RatesRecyclerAdapter(this, this.ViewModel.AllRates, i =>
-                    {
-                        Intent detailsIntent = new Intent(this, typeof(ExchangeRateDetailsActivity));
-                        detailsIntent.Extras.PutString(Helpers.Constants.SelectedRateCode, this.ViewModel.AllRates[i].CurrencyCode);
-                        this.StartActivity(detailsIntent);
-                    });
-
-                    this.ratesRecyclerView.SetAdapter(this.ratesRecyclerAdapter);
-                    this.ratesRecyclerView.SetLayoutManager(this.ratesRecylerViewLayoutManager);
-                }
-                else
-                {
-                    this.ratesRecyclerAdapter.UpdateDataSet(this.ViewModel.AllRates);
-                }
+                this.forexFlagImageView.Visibility = ViewStates.Visible;
+                this.forexFlagImageView.SetImageDrawable(this.Resources.GetDrawable(flagID));
             }
         }
 
         private void SwipeRefreshLayoutOnRefresh(object sender, EventArgs eventArgs)
         {
             this.swipeRefreshLayout.Refreshing = true;
-            this.ViewModel.RefreshRates();
+            this.ViewModel.RefreshSelectedRate();
         }
 
         private void ViewModelDataChanged(object sender, EventArgs eventArgs)

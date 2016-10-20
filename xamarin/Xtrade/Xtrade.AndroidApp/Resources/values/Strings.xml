@@ -2,6 +2,7 @@
 <resources>
     <string name="applicationName">Xtrade</string>
     <string name="allRatesLabel">Exchange Rates</string>
+  <string name="exchangeRateDetails">Exchange Rate Details</string>
     <string name="noRatesText">No Exchange Rates</string>
     <string name="flagContentDescriptionText">Rate Flag</string>
     <string name="buysNotesText">Buys Notes</string>
