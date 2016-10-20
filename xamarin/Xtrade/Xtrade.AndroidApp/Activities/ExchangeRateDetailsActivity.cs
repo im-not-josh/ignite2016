@@ -1,18 +1,16 @@
 ﻿namespace Xtrade.AndroidApp.Activities
 {
     using System;
-    using Adapters;
     using Android.App;
     using Android.OS;
     using Android.Support.Design.Widget;
     using Android.Support.V4.Widget;
-    using Android.Support.V7.Widget;
     using Android.Views;
     using Android.Widget;
     using Shared.Interfaces.ViewModels;
     using Toolbar = Android.Support.V7.Widget.Toolbar;
 
-    [Activity(Label = "@string/exchangeRateDetails", Theme = "@style/Xtrade", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "@string/exchangeRateDetails", Theme = "@style/Xtrade", Icon = "@drawable/icon")]
     public class ExchangeRateDetailsActivity : BaseActivity<ISelectedRateViewModel>
     {
         private Toolbar applicationToolbar;
@@ -35,12 +33,13 @@
             this.forexFlagImageView = this.FindViewById<ImageView>(Resource.Id.forexFlagImageView);
 
             this.SetSupportActionBar(this.applicationToolbar);
+            this.SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
             Bundle bundle = this.Intent.Extras ?? savedInstanceState;
 
-            if (bundle != null && bundle.ContainsKey(Helpers.Constants.SelectedRateCode))
+            if (bundle != null && bundle.ContainsKey(Helpers.AndroidConstants.SelectedRateCode))
             {
-                this._selectedRateCode = bundle.GetString(Helpers.Constants.SelectedRateCode, "");
+                this._selectedRateCode = bundle.GetString(Helpers.AndroidConstants.SelectedRateCode, "");
 
                 if (string.IsNullOrWhiteSpace(this._selectedRateCode))
                 {
@@ -80,7 +79,7 @@
 
         protected override void OnSaveInstanceState(Bundle outgoingState)
         {
-            outgoingState.PutString(Helpers.Constants.SelectedRateCode, this._selectedRateCode);
+            outgoingState.PutString(Helpers.AndroidConstants.SelectedRateCode, this._selectedRateCode);
             base.OnSaveInstanceState(outgoingState);
         }
 

@@ -13,35 +13,35 @@
             android:layout_height="?attr/actionBarSize"
             android:theme="@style/Xtrade.Toolbar"
             android:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
-      <LinearLayout
-          android:orientation="horizontal"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:paddingBottom="@dimen/rateVerticalPaddingSize">
-        <ImageView
-            android:id="@+id/forexFlagImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:contentDescription="@string/flagContentDescriptionText" />
         <LinearLayout
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content">
-          <TextView
-              android:id="@+id/forexCodeTextView"
-              style="@style/NormalText"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content" />
-          <TextView
-              android:id="@+id/forexCountryTextView"
-              android:paddingTop="@dimen/rateVerticalTopPaddingSize"
-              style="@style/HeaderText"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content" />
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/standardPaddingSize">
+            <ImageView
+                android:id="@+id/forexFlagImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingRight="@dimen/standardPaddingSize"
+                android:contentDescription="@string/flagContentDescriptionText" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/forexCodeTextView"
+                    style="@style/NormalText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/forexCountryTextView"
+                    android:paddingTop="@dimen/rateVerticalTopPaddingSize"
+                    style="@style/HeaderText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
         </LinearLayout>
-      </LinearLayout>
     </LinearLayout>
 </android.support.v4.widget.SwipeRefreshLayout>

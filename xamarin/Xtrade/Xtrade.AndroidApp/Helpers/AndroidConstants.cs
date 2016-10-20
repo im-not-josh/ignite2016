@@ -1,6 +1,6 @@
 namespace Xtrade.AndroidApp.Helpers
 {
-    public static class Constants
+    public static class AndroidConstants
     {
         public const string SelectedRateCode = "SelectedRateCode";
     }

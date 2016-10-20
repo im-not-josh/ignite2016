@@ -82,7 +82,7 @@
                     this.ratesRecyclerAdapter = new RatesRecyclerAdapter(this, this.ViewModel.AllRates, i =>
                     {
                         Intent detailsIntent = new Intent(this, typeof(ExchangeRateDetailsActivity));
-                        detailsIntent.Extras.PutString(Helpers.Constants.SelectedRateCode, this.ViewModel.AllRates[i].CurrencyCode);
+                        detailsIntent.PutExtra(Helpers.AndroidConstants.SelectedRateCode, this.ViewModel.AllRates[i].CurrencyCode);
                         this.StartActivity(detailsIntent);
                     });
 
