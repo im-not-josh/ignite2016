@@ -140,19 +140,28 @@
 
         private void ViewModelDataChanged(object sender, EventArgs eventArgs)
         {
-            this.UpdateViews();
+            this.RunOnUiThread(() =>
+            {
+                this.UpdateViews(); 
+            });
         }
 
         private void ViewModelRefreshError(object sender, string s)
         {
-            this._swipeRefreshLayout.Refreshing = this.ViewModel.IsDataRefreshing;
-            Snackbar.Make(this._swipeRefreshLayout, s, Snackbar.LengthLong).Show();
+            this.RunOnUiThread(() =>
+            {
+                this._swipeRefreshLayout.Refreshing = this.ViewModel.IsDataRefreshing;
+                Snackbar.Make(this._swipeRefreshLayout, s, Snackbar.LengthLong).Show();
+            });
         }
 
         private void ViewModelRefreshSuccess(object sender, string s)
         {
-            this._swipeRefreshLayout.Refreshing = this.ViewModel.IsDataRefreshing;
-            Snackbar.Make(this._swipeRefreshLayout, s, Snackbar.LengthLong).Show();
+            this.RunOnUiThread(() =>
+            {
+                this._swipeRefreshLayout.Refreshing = this.ViewModel.IsDataRefreshing;
+                Snackbar.Make(this._swipeRefreshLayout, s, Snackbar.LengthLong).Show();
+            });
         }
     }
 }

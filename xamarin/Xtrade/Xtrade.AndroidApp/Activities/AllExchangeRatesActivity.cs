@@ -36,7 +36,7 @@
             this._ratesRecylerViewLayoutManager = new LinearLayoutManager(this);
 
             this.SetSupportActionBar(this._applicationToolbar);
-            this._applicationToolbar.SetTitle(Resource.String.allRatesLabel);
+            this.SupportActionBar.SetTitle(Resource.String.allRatesLabel);
         }
 
         protected override void OnResume()
@@ -66,7 +66,6 @@
 
         private void UpdateViews()
         {
-
             this._swipeRefreshLayout.Refreshing = this.ViewModel.IsDataRefreshing;
 
             if (this.ViewModel.AllRates == null || this.ViewModel.AllRates.Count == 0)
