@@ -9,6 +9,7 @@
     using Android.Support.V7.Widget;
     using Android.Text;
     using Android.Views;
+    using Android.Views.InputMethods;
     using Android.Widget;
     using Shared.Interfaces.ViewModels;
 
@@ -40,6 +41,8 @@
 
             this.ViewModel.OnViewModelDataChanged += this.ViewModelDataChanged;
             this._valueEditText.TextChanged += this.ValueEditTextOnTextChanged;
+
+            this.ViewModel.UpdateData("");
         }
 
         private void ValueEditTextOnTextChanged(object sender, TextChangedEventArgs textChangedEventArgs)
@@ -50,6 +53,9 @@
         public override void OnPause()
         {
             base.OnPause();
+
+            InputMethodManager imm = (InputMethodManager)this.Activity.GetSystemService(Context.InputMethodService);
+            imm.HideSoftInputFromWindow(this.Activity.Window.DecorView.WindowToken, 0);
 
             this._ratesRecyclerAdapter = null;
             this._valueEditText.TextChanged -= this.ValueEditTextOnTextChanged;
@@ -70,6 +76,7 @@
 
             this._valueEditText.TextChanged -= this.ValueEditTextOnTextChanged;
             this._valueEditText.Text = this.ViewModel.DollarValue;
+            this._valueEditText.SetSelection(this.ViewModel.DollarValue.Length);
             this._valueEditText.TextChanged += this.ValueEditTextOnTextChanged;
         }
 

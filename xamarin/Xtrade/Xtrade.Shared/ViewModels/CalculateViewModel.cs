@@ -43,17 +43,21 @@
             if (decimal.TryParse(newValue.Trim('$'), out newValueParsed))
             {
                 this._dollarValue = newValueParsed;
-
-                foreach (ConvertedRateViewModel convertedRateViewModel in this.ConvertedRateViewModels)
-                {
-                    decimal convertedValue = convertedRateViewModel.SellRate * this._dollarValue;
-                    convertedRateViewModel.ConvertedRate = convertedValue.ToString("C");
-                }
             }
-            
+            else
+            {
+                this._dollarValue = 0;
+            }
+
+            foreach (ConvertedRateViewModel convertedRateViewModel in this.ConvertedRateViewModels)
+            {
+                decimal convertedValue = convertedRateViewModel.SellRate * this._dollarValue;
+                convertedRateViewModel.ConvertedRate = convertedValue.ToString("C");
+            }
+
             this.OnViewModelDataChanged?.Invoke(this, null);
         }
 
-        public string DollarValue { get { return this._dollarValue.ToString("C"); } }
+        public string DollarValue { get { return this._dollarValue.ToString("C0"); } }
     }
 }
