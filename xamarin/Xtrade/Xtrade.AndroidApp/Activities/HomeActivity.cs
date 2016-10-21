@@ -45,12 +45,16 @@
 
         private void NavigationViewOnNavigationItemSelected(object sender, NavigationView.NavigationItemSelectedEventArgs navigationItemSelectedEventArgs)
         {
+            navigationItemSelectedEventArgs.MenuItem.SetChecked(true);
             switch (navigationItemSelectedEventArgs.MenuItem.ItemId)
             {
                 case Resource.Id.navigation_all_exchange_rates:
+                    this._navigationView.SetCheckedItem(Resource.Id.navigation_all_exchange_rates);
                     this.ShowAllExchangeRatesFragment();
                     break;
                 case Resource.Id.navigation_calculate:
+                    this._navigationView.SetCheckedItem(Resource.Id.navigation_calculate);
+                    this.ShowCalculateFragment();
                     break;
             }
 
@@ -90,7 +94,18 @@
             fragmentTransaction.Replace(Resource.Id.containerFrameLayout, allExchangeRatesFragment, allExchangeRatesFragment.GetType().Name);
             fragmentTransaction.Commit();
         }
-        
+
+        private void ShowCalculateFragment()
+        {
+            this.ClearFragmentBackStack();
+
+            CalculateFragment calculateFragment = new CalculateFragment();
+            FragmentTransaction fragmentTransaction = this.SupportFragmentManager.BeginTransaction();
+            fragmentTransaction.Replace(Resource.Id.containerFrameLayout, calculateFragment, calculateFragment.GetType().Name);
+            fragmentTransaction.AddToBackStack(calculateFragment.GetType().Name);
+            fragmentTransaction.Commit();
+        }
+
         private void ClearFragmentBackStack()
         {
             for (int i = 0;i < this.SupportFragmentManager.BackStackEntryCount;i++)

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/standardPaddingSize">
+        <ImageView
+            android:id="@+id/forexFlagImageView"
+            android:layout_width="wrap_content"
+            android:src="@drawable/flag_nz"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:contentDescription="@string/flagContentDescriptionText" />
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/valueTextInputLayout"
+            android:hint="@string/nzDollarHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/valueEditText"
+                android:maxLength="50"
+                android:inputType="number"
+                android:singleLine="true" />
+        </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/calculatedRatesRecyclerView"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp" />
+</LinearLayout>

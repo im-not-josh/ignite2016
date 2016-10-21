@@ -150,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\BaseViewModelActivity.cs" />
+    <Compile Include="fragments\CalculateFragment.cs" />
     <Compile Include="fragments\AllExchangeRatesFragment.cs" />
     <Compile Include="Activities\ExchangeRateDetailsActivity.cs" />
     <Compile Include="Activities\HomeActivity.cs" />
@@ -163,7 +164,7 @@
     <Compile Include="XtradeApplication.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\fragmnety_all_exchange_rates.axml">
+    <AndroidResource Include="Resources\layout\fragment_all_exchange_rates.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -185,10 +186,12 @@
     <AndroidResource Include="Resources\layout\navigation_header_view.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_calculate.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
-    <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Dimensions.xml" />
@@ -405,6 +408,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_navigation_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\navigation_item_text_color.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\flag_nz.png" />
   </ItemGroup>
   <Import Project="..\Xtrade.Shared\Xtrade.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

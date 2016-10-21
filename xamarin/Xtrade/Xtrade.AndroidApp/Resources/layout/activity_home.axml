@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawerLayout"
     android:fitsSystemWindows="true"
-                       android:background="@color/primary_blue_dark"                 
+    android:background="@color/primary_blue_dark"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
         android:fitsSystemWindows="true"
-        android:background="@color/primary_blue_dark"                 
+        android:background="@color/primary_blue_dark"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -20,7 +20,7 @@
             android:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
         <FrameLayout
             android:id="@+id/containerFrameLayout"
-            android:background="@android:color/white"   
+            android:background="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
@@ -30,6 +30,7 @@
         android:layout_gravity="left"
         app:headerLayout="@layout/navigation_header_view"
         app:menu="@menu/navigation_drawer_menu"
+        app:itemTextColor="@drawable/navigation_item_text_color"
         android:layout_width="wrap_content"
         android:layout_height="match_parent" />
 </android.support.v4.widget.DrawerLayout>

@@ -15,4 +15,6 @@
   <string name="buysPaymentsText">Buys Payments</string>
   <string name="sellsChequesText">Sells Cheques</string>
   <string name="smallestNoteText">Smallest Note</string>
+
+  <string name="nzDollarHint">New Zealand Dollar Value</string>
 </resources>
