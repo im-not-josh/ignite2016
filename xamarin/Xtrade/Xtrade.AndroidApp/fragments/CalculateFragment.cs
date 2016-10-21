@@ -19,7 +19,7 @@
         private RecyclerView _ratesRecyclerView;
         private RecyclerView.LayoutManager _ratesRecylerViewLayoutManager;
         private ConvertedRatesRecyclerAdapter _ratesRecyclerAdapter;
-        private string _savedString = "'";
+        private string _savedString = "";
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {

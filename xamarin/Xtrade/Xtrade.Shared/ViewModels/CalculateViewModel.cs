@@ -3,9 +3,11 @@
     using System;
     using System.Collections.Generic;
     using Domain.Models;
+    using Interfaces.Domain.Models;
     using Interfaces.Managers;
     using Interfaces.Repository;
     using Interfaces.ViewModels;
+    using Utilities;
 
     public class CalculateViewModel : ICalculateViewModel
     {
@@ -15,13 +17,13 @@
 
         private decimal _dollarValue;
 
-        public List<ConvertedRateViewModel> ConvertedRateViewModels { get; private set; }
+        public IList<IConvertedRateViewModel> ConvertedRateViewModels { get; private set; }
 
         public CalculateViewModel(IXtradeRepository xtradeRepository, IWebServiceManager webServiceManager)
         {
             this._xtradeRepository = xtradeRepository;
             this._webServiceManager = webServiceManager;
-            this.ConvertedRateViewModels = new List<ConvertedRateViewModel>();
+            this.ConvertedRateViewModels = new List<IConvertedRateViewModel>();
             this._dollarValue = 0;
         }
 
@@ -37,6 +39,8 @@
                 {
                     this.ConvertedRateViewModels.Add(new ConvertedRateViewModel() { Code = rate.CurrencyCode, SellRate = rate.SellsNotes });
                 }
+
+                this.ConvertedRateViewModels = this.ConvertedRateViewModels.OrderedRatesList();
             }
             
             decimal newValueParsed;
@@ -49,7 +53,7 @@
                 this._dollarValue = 0;
             }
 
-            foreach (ConvertedRateViewModel convertedRateViewModel in this.ConvertedRateViewModels)
+            foreach (IConvertedRateViewModel convertedRateViewModel in this.ConvertedRateViewModels)
             {
                 decimal convertedValue = convertedRateViewModel.SellRate * this._dollarValue;
                 convertedRateViewModel.ConvertedRate = convertedValue.ToString("C");

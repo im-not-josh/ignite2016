@@ -6,7 +6,7 @@
 
     public interface ICalculateViewModel
     {
-        List<ConvertedRateViewModel> ConvertedRateViewModels { get; }
+        IList<IConvertedRateViewModel> ConvertedRateViewModels { get; }
 
         event EventHandler OnViewModelDataChanged;
 
