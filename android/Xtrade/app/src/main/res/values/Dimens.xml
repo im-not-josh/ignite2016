@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <dimen name="standardPaddingSize">16dp</dimen>
+  <dimen name="rateVerticalPaddingSize">5dp</dimen>
+  <dimen name="rateHorizontalRightPaddingSize">5dp</dimen>
+  <dimen name="rateVerticalTopPaddingSize">2dp</dimen>
+</resources>
