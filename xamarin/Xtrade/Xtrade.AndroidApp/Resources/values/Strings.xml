@@ -5,7 +5,9 @@
   <string name="exchangeRateDetails">Exchange Rate Details</string>
   <string name="noRatesText">No Exchange Rates</string>
   <string name="flagContentDescriptionText">Rate Flag</string>
-    
+
+  <string name="buysText">Buys</string>
+  <string name="sellsText">Sells</string>
   <string name="buysNotesText">Buys Notes</string>
   <string name="sellsNotesText">Sells Notes</string>
   <string name="buysChequesText">Buys Cheques</string>
