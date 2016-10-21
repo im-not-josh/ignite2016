@@ -110,7 +110,6 @@ public class ExchangeRateDetailsActivity extends BaseActivity implements Exchang
         });
 
         this.exchangeRateDetailsPresenterLazy.get().setExchangeRateDetailsViewContract(this, this.selectedRateCode);
-        this.swipeRefreshLayout.setRefreshing(true);
     }
 
     @Override

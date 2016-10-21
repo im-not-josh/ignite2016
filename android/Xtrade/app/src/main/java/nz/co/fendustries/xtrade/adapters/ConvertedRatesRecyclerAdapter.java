@@ -35,7 +35,7 @@ public class ConvertedRatesRecyclerAdapter extends RecyclerView.Adapter<Converte
     @Override
     public ConvertedRateViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
-        View itemView = this.activity.getLayoutInflater().inflate(R.layout.recycler_item_rate, parent, false);
+        View itemView = this.activity.getLayoutInflater().inflate(R.layout.recycler_item_converted_rate, parent, false);
         return new ConvertedRateViewHolder(itemView);
     }
 

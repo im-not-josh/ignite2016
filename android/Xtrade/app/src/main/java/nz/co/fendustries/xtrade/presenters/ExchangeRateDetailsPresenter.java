@@ -43,6 +43,7 @@ public class ExchangeRateDetailsPresenter
             this.exchangeRateDetailsViewContract = exchangeRateDetailsViewContract;
             this.selectedRate = this.xtradeRepositoryLazy.get().getRateByCode(selectedCode);
             this.exchangeRateDetailsViewContract.updateView();
+            this.exchangeRateDetailsViewContract.showRefreshingView(false);
         }
         else
         {

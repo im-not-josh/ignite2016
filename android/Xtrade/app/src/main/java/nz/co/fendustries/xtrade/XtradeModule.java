@@ -14,6 +14,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import nz.co.fendustries.xtrade.presenters.AllExchangeRatesPresenter;
+import nz.co.fendustries.xtrade.presenters.CalculatePresenter;
 import nz.co.fendustries.xtrade.presenters.ExchangeRateDetailsPresenter;
 import nz.co.fendustries.xtrade.repository.XtradeRepository;
 import nz.co.fendustries.xtrade.services.RateService;
@@ -56,6 +57,13 @@ public class XtradeModule
     public ExchangeRateDetailsPresenter provideExchangeRateDetailsPresenter()
     {
         return new ExchangeRateDetailsPresenter(this.xtradeApplication);
+    }
+
+    @Provides
+    @Singleton
+    public CalculatePresenter provideCalculatePresenter()
+    {
+        return new CalculatePresenter(this.xtradeApplication);
     }
 
     @Provides
@@ -135,6 +143,6 @@ public class XtradeModule
     @Singleton
     public Gson provideGson()
     {
-        return new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create();
+        return new GsonBuilder().create();
     }
 }

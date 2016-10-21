@@ -16,10 +16,8 @@ public class XtradeSQLiteDatabaseHelper extends SQLiteOpenHelper
 
     private static final String DATABASE_CREATE_TABLE_RATE_MODEL = "CREATE TABLE " + Rate.RateModelContract.TABLE_NAME
             + "(" + Rate.RateModelContract._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + Rate.RateModelContract.COLUMN_NAME_RATE_ID + " INTEGER NOT NULL, "
             + Rate.RateModelContract.COLUMN_NAME_RATE_BUYS_CHEQUES + " DOUBLE, "
             + Rate.RateModelContract.COLUMN_NAME_RATE_BUYS_NOTES+ " DOUBLE, "
-            + Rate.RateModelContract.COLUMN_NAME_RATE_DESCRIPTION + " TEXT, "
             + Rate.RateModelContract.COLUMN_NAME_RATE_BUYS_PAYMENTS + " DOUBLE, "
             + Rate.RateModelContract.COLUMN_NAME_RATE_CURRENCY_CODE + " TEXT, "
             + Rate.RateModelContract.COLUMN_NAME_RATE_DESCRIPTION + " TEXT, "
