@@ -12,7 +12,7 @@
     using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
     using Toolbar = Android.Support.V7.Widget.Toolbar;
 
-    [Activity(Label = "@string/applicationName", Theme = "@style/Xtrade", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
+    [Activity(Label = "@string/applicationName", Theme = "@style/XtradeHome", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
     public class HomeActivity : BaseActivity
     {
         private Toolbar _applicationToolbar;
@@ -38,6 +38,11 @@
             this.ShowAllExchangeRatesFragment();
         }
 
+        public void SetActionBarTitle(string title)
+        {
+            this.SupportActionBar.Title = title;
+        }
+
         private void NavigationViewOnNavigationItemSelected(object sender, NavigationView.NavigationItemSelectedEventArgs navigationItemSelectedEventArgs)
         {
             switch (navigationItemSelectedEventArgs.MenuItem.ItemId)
@@ -48,6 +53,8 @@
                 case Resource.Id.navigation_calculate:
                     break;
             }
+
+            this._drawerLayout.CloseDrawer(GravityCompat.Start);
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)

@@ -32,14 +32,14 @@
             this._ratesRecyclerView = view.FindViewById<RecyclerView>(Resource.Id.ratesRecyclerView);
             this._ratesRecylerViewLayoutManager = new LinearLayoutManager(this.Activity);
 
-            this.Activity.ActionBar.SetTitle(Resource.String.allRatesLabel);
-
             return view;
         }
 
         public override void OnResume()
         {
             base.OnResume();
+
+            ((HomeActivity)this.Activity).SetActionBarTitle(this.GetString(Resource.String.allRatesLabel));
 
             this.ViewModel.OnViewModelDataChanged += this.ViewModelDataChanged;
             this.ViewModel.OnRefreshError += this.ViewModelRefreshError;

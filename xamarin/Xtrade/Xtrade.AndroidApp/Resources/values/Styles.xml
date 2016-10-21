@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <resources>
   <style name="Xtrade" parent="Xtrade.Base" />
+  <style name="XtradeHome" parent="XtradeHome.Base" />
   <style name="Xtrade.Base" parent="@style/Theme.AppCompat.Light.DarkActionBar">
     <item name="windowActionBar">false</item>
     <item name="windowNoTitle">true</item>
@@ -11,6 +12,18 @@
     <item name="android:textColorPrimary">@color/primary_text_black</item>
     <item name="android:textColor">@color/alternatvie_text_white</item>
     <item name="android:statusBarColor">@color/primary_blue_dark</item>
+    <item name="android:navigationBarColor">@color/primary_blue_dark</item>
+  </style>
+  <style name="XtradeHome.Base" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+    <item name="colorPrimary">@color/primary_blue</item>
+    <item name="colorPrimaryDark">@color/primary_blue_dark</item>
+    <item name="colorAccent">@color/accent_orange_dark</item>
+    <item name="colorButtonNormal">@color/primary_blue_dark</item>
+    <item name="android:textColorPrimary">@color/primary_text_black</item>
+    <item name="android:textColor">@color/alternatvie_text_white</item>
+    <item name="android:statusBarColor">@android:color/transparent</item>
     <item name="android:navigationBarColor">@color/primary_blue_dark</item>
   </style>
   <style name="HeaderText" parent="@android:attr/textAppearanceSmall">

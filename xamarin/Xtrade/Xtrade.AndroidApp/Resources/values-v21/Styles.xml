@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <resources>
+  <style name="XtradeHome" parent="XtradeHome.Base">
+    <item name="android:windowContentTransitions">true</item>
+    <item name="android:windowAllowEnterTransitionOverlap">true</item>
+    <item name="android:windowAllowReturnTransitionOverlap">true</item>
+    <item name="android:windowSharedElementEnterTransition">@android:transition/fade</item>
+    <item name="android:windowSharedElementExitTransition">@android:transition/fade</item>
+  </style>
   <style name="Xtrade" parent="Xtrade.Base">
     <item name="android:windowContentTransitions">true</item>
     <item name="android:windowAllowEnterTransitionOverlap">true</item>

@@ -11,7 +11,7 @@
     using Toolbar = Android.Support.V7.Widget.Toolbar;
 
     [Activity(Label = "@string/exchangeRateDetails", Theme = "@style/Xtrade")]
-    public class ExchangeRateDetailsActivity : BaseActivity<ISelectedRateViewModel>
+    public class ExchangeRateDetailsActivity : BaseViewModelActivity<ISelectedRateViewModel>
     {
         private Toolbar _applicationToolbar;
         private SwipeRefreshLayout _swipeRefreshLayout;
