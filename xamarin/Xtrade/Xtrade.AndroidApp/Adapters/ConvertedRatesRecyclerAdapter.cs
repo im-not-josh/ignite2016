@@ -5,15 +5,16 @@ namespace Xtrade.AndroidApp.Adapters
     using Android.Support.V7.App;
     using Android.Support.V7.Widget;
     using Android.Views;
+    using Shared.Interfaces.ViewModels;
     using Shared.ViewModels;
     using ViewHolders;
 
     public class ConvertedRatesRecyclerAdapter : RecyclerView.Adapter
     {
-        private IList<ConvertedRateViewModel> _convertedRates;
+        private IList<IConvertedRateViewModel> _convertedRates;
         private readonly AppCompatActivity _activity;
 
-        public ConvertedRatesRecyclerAdapter(AppCompatActivity activity, IList<ConvertedRateViewModel> convertedRates)
+        public ConvertedRatesRecyclerAdapter(AppCompatActivity activity, IList<IConvertedRateViewModel> convertedRates)
         {
             this._convertedRates = convertedRates;
             this._activity = activity;
@@ -24,7 +25,7 @@ namespace Xtrade.AndroidApp.Adapters
             get { return this._convertedRates != null ? this._convertedRates.Count : 0; }
         }
 
-        public ConvertedRateViewModel this[int position]
+        public IConvertedRateViewModel this[int position]
         {
             get { return this._convertedRates[position]; }
         }
@@ -38,7 +39,7 @@ namespace Xtrade.AndroidApp.Adapters
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             ConvertedRateViewHolder viewHolder = holder as ConvertedRateViewHolder;
-            ConvertedRateViewModel rate = this._convertedRates != null ? this._convertedRates[position] : null;
+            IConvertedRateViewModel rate = this._convertedRates?[position];
 
             if (rate != null && viewHolder != null)
             {

@@ -1,6 +1,8 @@
 ﻿namespace Xtrade.Shared.ViewModels
 {
-    public class ConvertedRateViewModel
+    using Interfaces.ViewModels;
+
+    public class ConvertedRateViewModel : IConvertedRateViewModel
     {
         public string Code { get; set; }
 
