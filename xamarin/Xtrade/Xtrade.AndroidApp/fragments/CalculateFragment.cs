@@ -34,11 +34,11 @@
         {
             base.OnResume();
 
-            ((HomeActivity)this.Activity).SetActionBarTitle(this.GetString(Resource.String.allRatesLabel));
+            ((HomeActivity)this.Activity).SetActionBarTitle(this.GetString(Resource.String.calculateLabel));
 
             this.ViewModel.OnViewModelDataChanged += this.ViewModelDataChanged;
 
-            this.ViewModel.LoadData();
+            //this.ViewModel.LoadData();
         }
 
         public override void OnPause()
@@ -50,22 +50,15 @@
 
         private void UpdateViews()
         {
-            if (this._ratesRecyclerAdapter == null)
+            this._ratesRecyclerAdapter = new RatesRecyclerAdapter((AppCompatActivity) this.Activity, this.ViewModel.AllRates, i =>
             {
-                this._ratesRecyclerAdapter = new RatesRecyclerAdapter((AppCompatActivity) this.Activity, this.ViewModel.AllRates, i =>
-                {
-                    Intent detailsIntent = new Intent(this.Activity, typeof (ExchangeRateDetailsActivity));
-                    detailsIntent.PutExtra(Helpers.AndroidConstants.SelectedRateCode, this.ViewModel.AllRates[i].CurrencyCode);
-                    this.StartActivity(detailsIntent);
-                });
+                Intent detailsIntent = new Intent(this.Activity, typeof (ExchangeRateDetailsActivity));
+                detailsIntent.PutExtra(Helpers.AndroidConstants.SelectedRateCode, this.ViewModel.AllRates[i].CurrencyCode);
+                this.StartActivity(detailsIntent);
+            });
 
-                this._ratesRecyclerView.SetAdapter(this._ratesRecyclerAdapter);
-                this._ratesRecyclerView.SetLayoutManager(this._ratesRecylerViewLayoutManager);
-            }
-            else
-            {
-                this._ratesRecyclerAdapter.UpdateDataSet(this.ViewModel.AllRates);
-            }
+            this._ratesRecyclerView.SetAdapter(this._ratesRecyclerAdapter);
+            this._ratesRecyclerView.SetLayoutManager(this._ratesRecylerViewLayoutManager);
         }
 
         private void ViewModelDataChanged(object sender, EventArgs eventArgs)

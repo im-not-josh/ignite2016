@@ -21,12 +21,6 @@ namespace Xtrade.AndroidApp.Adapters
             this._itemClickAction = itemClickAction;
         }
 
-        public void UpdateDataSet(IList<IRate> allRates)
-        {
-            this._allRates = allRates;
-            this.NotifyDataSetChanged();
-        }
-
         public override int ItemCount
         {
             get { return this._allRates != null ? this._allRates.Count : 0; }

@@ -49,11 +49,9 @@
             switch (navigationItemSelectedEventArgs.MenuItem.ItemId)
             {
                 case Resource.Id.navigation_all_exchange_rates:
-                    this._navigationView.SetCheckedItem(Resource.Id.navigation_all_exchange_rates);
                     this.ShowAllExchangeRatesFragment();
                     break;
                 case Resource.Id.navigation_calculate:
-                    this._navigationView.SetCheckedItem(Resource.Id.navigation_calculate);
                     this.ShowCalculateFragment();
                     break;
             }
@@ -81,7 +79,15 @@
             }
             else
             {
-                base.OnBackPressed();
+                if (this.SupportFragmentManager.BackStackEntryCount > 0)
+                {
+                    this.SupportFragmentManager.PopBackStackImmediate();
+                    this._navigationView.SetCheckedItem(Resource.Id.navigation_all_exchange_rates);
+                }
+                else
+                {
+                    base.OnBackPressed();
+                }
             }
         }
         
@@ -89,6 +95,7 @@
         {
             this.ClearFragmentBackStack();
 
+            this._navigationView.SetCheckedItem(Resource.Id.navigation_all_exchange_rates);
             AllExchangeRatesFragment allExchangeRatesFragment = new AllExchangeRatesFragment();
             FragmentTransaction fragmentTransaction = this.SupportFragmentManager.BeginTransaction();
             fragmentTransaction.Replace(Resource.Id.containerFrameLayout, allExchangeRatesFragment, allExchangeRatesFragment.GetType().Name);
@@ -99,6 +106,7 @@
         {
             this.ClearFragmentBackStack();
 
+            this._navigationView.SetCheckedItem(Resource.Id.navigation_calculate);
             CalculateFragment calculateFragment = new CalculateFragment();
             FragmentTransaction fragmentTransaction = this.SupportFragmentManager.BeginTransaction();
             fragmentTransaction.Replace(Resource.Id.containerFrameLayout, calculateFragment, calculateFragment.GetType().Name);

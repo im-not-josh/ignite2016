@@ -31,6 +31,7 @@
             this._swipeRefreshLayout = view.FindViewById<SwipeRefreshLayout>(Resource.Id.swipeRefreshLayout);
             this._ratesRecyclerView = view.FindViewById<RecyclerView>(Resource.Id.ratesRecyclerView);
             this._ratesRecylerViewLayoutManager = new LinearLayoutManager(this.Activity);
+            this._ratesRecyclerView.SetLayoutManager(this._ratesRecylerViewLayoutManager);
 
             return view;
         }
@@ -79,22 +80,14 @@
                 this._noRatesTextView.Visibility = ViewStates.Gone;
                 this._ratesRecyclerView.Visibility = ViewStates.Visible;
 
-                if (this._ratesRecyclerAdapter == null)
+                this._ratesRecyclerAdapter = new RatesRecyclerAdapter((AppCompatActivity) this.Activity, this.ViewModel.AllRates, i =>
                 {
-                    this._ratesRecyclerAdapter = new RatesRecyclerAdapter((AppCompatActivity)this.Activity, this.ViewModel.AllRates, i =>
-                    {
-                        Intent detailsIntent = new Intent(this.Activity, typeof (ExchangeRateDetailsActivity));
-                        detailsIntent.PutExtra(Helpers.AndroidConstants.SelectedRateCode, this.ViewModel.AllRates[i].CurrencyCode);
-                        this.StartActivity(detailsIntent);
-                    });
+                    Intent detailsIntent = new Intent(this.Activity, typeof (ExchangeRateDetailsActivity));
+                    detailsIntent.PutExtra(Helpers.AndroidConstants.SelectedRateCode, this.ViewModel.AllRates[i].CurrencyCode);
+                    this.StartActivity(detailsIntent);
+                });
 
-                    this._ratesRecyclerView.SetAdapter(this._ratesRecyclerAdapter);
-                    this._ratesRecyclerView.SetLayoutManager(this._ratesRecylerViewLayoutManager);
-                }
-                else
-                {
-                    this._ratesRecyclerAdapter.UpdateDataSet(this.ViewModel.AllRates);
-                }
+                this._ratesRecyclerView.SetAdapter(this._ratesRecyclerAdapter);
             }
         }
 
