@@ -25,7 +25,7 @@
         {
             base.OnCreateView(inflater, container, savedInstanceState);
 
-            View view = inflater.Inflate(Resource.Layout.fragmnety_all_exchange_rates, container, false);
+            View view = inflater.Inflate(Resource.Layout.fragment_all_exchange_rates, container, false);
 
             this._noRatesTextView = view.FindViewById<TextView>(Resource.Id.noRatesTextView);
             this._swipeRefreshLayout = view.FindViewById<SwipeRefreshLayout>(Resource.Id.swipeRefreshLayout);
