@@ -1,13 +1,32 @@
-<manifest package="nz.co.fendustries.xtradeNative"
+<manifest package="nz.co.fendustries.xtrade"
           xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/applicationName"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Xtrade">
 
+        <activity
+            android:name=".activities.HomeActivity"
+            android:label="@string/applicationName"
+            android:launchMode="singleTop"
+            android:theme="@style/XtradeHome">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activities.ExchangeRateDetailsActivity"
+            android:label="@string/exchangeRateDetails"
+            android:launchMode="singleTop"
+            android:theme="@style/Xtrade">
+        </activity>
     </application>
 
 </manifest>

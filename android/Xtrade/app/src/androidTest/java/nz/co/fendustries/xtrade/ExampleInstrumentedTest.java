@@ -1,4 +1,4 @@
-package nz.co.fendustries.xtradeNative;
+package nz.co.fendustries.xtrade;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
