@@ -35,7 +35,10 @@
 
             this._navigationView.NavigationItemSelected += this.NavigationViewOnNavigationItemSelected;
 
-            this.ShowAllExchangeRatesFragment();
+            if (bundle == null)
+            {
+                this.ShowAllExchangeRatesFragment();
+            }
         }
 
         public void SetActionBarTitle(string title)

@@ -19,6 +19,7 @@
         private RecyclerView _ratesRecyclerView;
         private RecyclerView.LayoutManager _ratesRecylerViewLayoutManager;
         private ConvertedRatesRecyclerAdapter _ratesRecyclerAdapter;
+        private string _savedString = "'";
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -29,6 +30,11 @@
             this._ratesRecyclerView = view.FindViewById<RecyclerView>(Resource.Id.calculatedRatesRecyclerView);
             this._ratesRecylerViewLayoutManager = new LinearLayoutManager(this.Activity);
             this._ratesRecyclerView.SetLayoutManager(this._ratesRecylerViewLayoutManager);
+
+            if (savedInstanceState != null)
+            {
+                this._savedString = savedInstanceState.GetString(Helpers.AndroidConstants.RateEntered, "");
+            }
 
             return view;
         }
@@ -42,7 +48,7 @@
             this.ViewModel.OnViewModelDataChanged += this.ViewModelDataChanged;
             this._valueEditText.TextChanged += this.ValueEditTextOnTextChanged;
 
-            this.ViewModel.UpdateData("");
+            this.ViewModel.UpdateData(this._savedString);
         }
 
         private void ValueEditTextOnTextChanged(object sender, TextChangedEventArgs textChangedEventArgs)
@@ -60,6 +66,12 @@
             this._ratesRecyclerAdapter = null;
             this._valueEditText.TextChanged -= this.ValueEditTextOnTextChanged;
             this.ViewModel.OnViewModelDataChanged -= this.ViewModelDataChanged;
+        }
+
+        public override void OnSaveInstanceState(Bundle outgoingState)
+        {
+            outgoingState.PutString(Helpers.AndroidConstants.RateEntered, this._valueEditText.Text);
+            base.OnSaveInstanceState(outgoingState);
         }
 
         private void UpdateViews()
@@ -84,10 +96,7 @@
         {
             this.Activity.RunOnUiThread(() =>
             {
-                if (this.IsVisible)
-                {
-                    this.UpdateViews();
-                }
+                this.UpdateViews();
             });
         }
     }
