@@ -1,45 +1,43 @@
-﻿namespace Xtrade.AndroidApp.Activities
+﻿namespace Xtrade.AndroidApp.Fragments
 {
     using System;
+    using Activities;
     using Adapters;
-    using Android.App;
     using Android.Content;
     using Android.OS;
     using Android.Support.Design.Widget;
     using Android.Support.V4.Widget;
+    using Android.Support.V7.App;
     using Android.Support.V7.Widget;
     using Android.Views;
     using Android.Widget;
     using Shared.Interfaces.ViewModels;
-    using Toolbar = Android.Support.V7.Widget.Toolbar;
 
-    [Activity(Label = "@string/applicationName", Theme = "@style/Xtrade", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
-    public class AllExchangeRatesActivity : BaseActivity<IAllRatesViewModel>
+    public class AllExchangeRatesFragment : BaseFragment<IAllRatesViewModel>
     {
-        private Toolbar _applicationToolbar;
         private TextView _noRatesTextView;
         private SwipeRefreshLayout _swipeRefreshLayout;
         private RecyclerView _ratesRecyclerView;
         private RecyclerView.LayoutManager _ratesRecylerViewLayoutManager;
         private RatesRecyclerAdapter _ratesRecyclerAdapter;
 
-        protected override void OnCreate(Bundle bundle)
+        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            base.OnCreate(bundle);
+            base.OnCreateView(inflater, container, savedInstanceState);
 
-            this.SetContentView(Resource.Layout.activity_all_exchange_rates);
+            View view = inflater.Inflate(Resource.Layout.fragmnety_all_exchange_rates, container, false);
 
-            this._applicationToolbar = this.FindViewById<Toolbar>(Resource.Id.applicationToolbar);
-            this._noRatesTextView = this.FindViewById<TextView>(Resource.Id.noRatesTextView);
-            this._swipeRefreshLayout = this.FindViewById<SwipeRefreshLayout>(Resource.Id.swipeRefreshLayout);
-            this._ratesRecyclerView = this.FindViewById<RecyclerView>(Resource.Id.ratesRecyclerView);
-            this._ratesRecylerViewLayoutManager = new LinearLayoutManager(this);
+            this._noRatesTextView = view.FindViewById<TextView>(Resource.Id.noRatesTextView);
+            this._swipeRefreshLayout = view.FindViewById<SwipeRefreshLayout>(Resource.Id.swipeRefreshLayout);
+            this._ratesRecyclerView = view.FindViewById<RecyclerView>(Resource.Id.ratesRecyclerView);
+            this._ratesRecylerViewLayoutManager = new LinearLayoutManager(this.Activity);
 
-            this.SetSupportActionBar(this._applicationToolbar);
-            this.SupportActionBar.SetTitle(Resource.String.allRatesLabel);
+            this.Activity.ActionBar.SetTitle(Resource.String.allRatesLabel);
+
+            return view;
         }
 
-        protected override void OnResume()
+        public override void OnResume()
         {
             base.OnResume();
 
@@ -52,8 +50,8 @@
             this._swipeRefreshLayout.Refreshing = true;
             this.ViewModel.LoadData();
         }
-        
-        protected override void OnPause()
+
+        public override void OnPause()
         {
             base.OnPause();
 
@@ -61,7 +59,10 @@
             this.ViewModel.OnRefreshError -= this.ViewModelRefreshError;
             this.ViewModel.OnRefreshSuccess -= this.ViewModelRefreshSuccess;
 
+            this._swipeRefreshLayout.Refreshing = false;
             this._swipeRefreshLayout.Refresh -= this.SwipeRefreshLayoutOnRefresh;
+            this._swipeRefreshLayout.DestroyDrawingCache();
+            this._swipeRefreshLayout.ClearAnimation();
         }
 
         private void UpdateViews()
@@ -80,9 +81,9 @@
 
                 if (this._ratesRecyclerAdapter == null)
                 {
-                    this._ratesRecyclerAdapter = new RatesRecyclerAdapter(this, this.ViewModel.AllRates, i =>
+                    this._ratesRecyclerAdapter = new RatesRecyclerAdapter((AppCompatActivity)this.Activity, this.ViewModel.AllRates, i =>
                     {
-                        Intent detailsIntent = new Intent(this, typeof (ExchangeRateDetailsActivity));
+                        Intent detailsIntent = new Intent(this.Activity, typeof (ExchangeRateDetailsActivity));
                         detailsIntent.PutExtra(Helpers.AndroidConstants.SelectedRateCode, this.ViewModel.AllRates[i].CurrencyCode);
                         this.StartActivity(detailsIntent);
                     });
@@ -105,27 +106,36 @@
 
         private void ViewModelDataChanged(object sender, EventArgs eventArgs)
         {
-            this.RunOnUiThread(() =>
+            this.Activity.RunOnUiThread(() =>
             {
-                this.UpdateViews(); 
+                if (this.IsVisible)
+                {
+                    this.UpdateViews();
+                }
             });
         }
 
         private void ViewModelRefreshError(object sender, string s)
         {
-            this.RunOnUiThread(() =>
+            this.Activity.RunOnUiThread(() =>
             {
-                this._swipeRefreshLayout.Refreshing = this.ViewModel.IsDataRefreshing;
-                Snackbar.Make(this._swipeRefreshLayout, s, Snackbar.LengthLong).Show();
+                if (this.IsVisible)
+                {
+                    this._swipeRefreshLayout.Refreshing = this.ViewModel.IsDataRefreshing;
+                    Snackbar.Make(this._swipeRefreshLayout, s, Snackbar.LengthLong).Show();
+                }
             });
         }
 
         private void ViewModelRefreshSuccess(object sender, string s)
         {
-            this.RunOnUiThread(() =>
+            this.Activity.RunOnUiThread(() =>
             {
-                this._swipeRefreshLayout.Refreshing = this.ViewModel.IsDataRefreshing;
-                Snackbar.Make(this._swipeRefreshLayout, s, Snackbar.LengthLong).Show();
+                if (this.IsVisible)
+                {
+                    this._swipeRefreshLayout.Refreshing = this.ViewModel.IsDataRefreshing;
+                    Snackbar.Make(this._swipeRefreshLayout, s, Snackbar.LengthLong).Show();
+                }
             });
         }
     }

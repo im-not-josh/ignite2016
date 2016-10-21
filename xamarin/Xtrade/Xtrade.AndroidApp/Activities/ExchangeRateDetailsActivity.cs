@@ -97,7 +97,10 @@
             this.ViewModel.OnRefreshError -= this.ViewModelRefreshError;
             this.ViewModel.OnRefreshSuccess -= this.ViewModelRefreshSuccess;
 
+            this._swipeRefreshLayout.Refreshing = false;
             this._swipeRefreshLayout.Refresh -= this.SwipeRefreshLayoutOnRefresh;
+            this._swipeRefreshLayout.DestroyDrawingCache();
+            this._swipeRefreshLayout.ClearAnimation();
         }
 
         protected override void OnSaveInstanceState(Bundle outgoingState)

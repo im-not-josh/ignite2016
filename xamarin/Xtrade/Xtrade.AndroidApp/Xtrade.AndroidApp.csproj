@@ -149,18 +149,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\BaseViewModelActivity.cs" />
+    <Compile Include="fragments\AllExchangeRatesFragment.cs" />
     <Compile Include="Activities\ExchangeRateDetailsActivity.cs" />
-    <Compile Include="Activities\AllExchangeRatesActivity.cs" />
+    <Compile Include="Activities\HomeActivity.cs" />
     <Compile Include="Activities\BaseActivity.cs" />
     <Compile Include="Adapters\RatesRecyclerAdapter.cs" />
     <Compile Include="Adapters\ViewHolders\RateViewHolder.cs" />
+    <Compile Include="fragments\BaseFragment.cs" />
     <Compile Include="Helpers\AndroidConstants.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XtradeApplication.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\activity_all_exchange_rates.axml">
+    <AndroidResource Include="Resources\layout\fragmnety_all_exchange_rates.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -174,6 +177,12 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\activity_exchange_rate_details.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_home.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\navigation_header_view.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -378,6 +387,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\navigation_drawer_menu.xml" />
   </ItemGroup>
   <Import Project="..\Xtrade.Shared\Xtrade.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
