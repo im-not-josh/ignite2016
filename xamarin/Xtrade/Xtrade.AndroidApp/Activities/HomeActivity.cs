@@ -30,7 +30,7 @@
             this._navigationView = this.FindViewById<NavigationView>(Resource.Id.navigationView);
 
             this.SetSupportActionBar(this._applicationToolbar);
-
+            this.SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_navigation_menu);
             this.SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
             this._navigationView.NavigationItemSelected += this.NavigationViewOnNavigationItemSelected;
