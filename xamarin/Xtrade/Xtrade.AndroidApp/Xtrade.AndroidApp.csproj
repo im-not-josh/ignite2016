@@ -150,6 +150,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\BaseViewModelActivity.cs" />
+    <Compile Include="Adapters\ConvertedRatesRecyclerAdapter.cs" />
+    <Compile Include="Adapters\ViewHolders\ConvertedRateViewHolder.cs" />
     <Compile Include="fragments\CalculateFragment.cs" />
     <Compile Include="fragments\AllExchangeRatesFragment.cs" />
     <Compile Include="Activities\ExchangeRateDetailsActivity.cs" />
@@ -187,6 +189,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\fragment_calculate.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\recycler_item_converted_rate.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

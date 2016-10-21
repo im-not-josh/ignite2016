@@ -30,6 +30,11 @@
                 android:singleLine="true" />
         </android.support.design.widget.TextInputLayout>
     </LinearLayout>
+    <View
+        android:layout_marginLeft="@dimen/standardPaddingSize"
+        android:layout_marginRight="@dimen/standardPaddingSize"
+        android:layout_marginBottom="@dimen/standardPaddingSize"
+        style="@style/Divider" />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/calculatedRatesRecyclerView"
         android:scrollbars="vertical"

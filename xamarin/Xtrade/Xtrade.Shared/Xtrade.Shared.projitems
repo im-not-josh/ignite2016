@@ -23,6 +23,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\Domain\ResponseModels\IRatesWrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\Managers\IWebServiceManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\Repository\IXtradeRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ViewModels\ICalculateViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ViewModels\ISelectedRateViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ViewModels\IAllRatesViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\WebServiceManager.cs" />
@@ -30,6 +31,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\CommonConstants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\ObjectExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\ResponseException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CalculateViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ConvertedRateViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SelectedRateViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AllRatesViewModel.cs" />
   </ItemGroup>

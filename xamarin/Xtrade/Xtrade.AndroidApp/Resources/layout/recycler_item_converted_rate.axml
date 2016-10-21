@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:paddingTop="@dimen/rateVerticalPaddingSize"
+    android:paddingLeft="@dimen/rateHorizontalRightPaddingSize"
+    android:paddingRight="@dimen/rateHorizontalRightPaddingSize">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/rateVerticalPaddingSize">
+        <ImageView
+            android:id="@+id/forexFlagImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:contentDescription="@string/flagContentDescriptionText" />
+        <TextView
+            android:id="@+id/forexCodeTextView"
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/rateHorizontalRightPaddingSize"
+            android:paddingRight="@dimen/rateHorizontalRightPaddingSize"
+            android:layout_height="wrap_content"
+            style="@style/LargeText" />
+            <TextView
+                android:id="@+id/sellRateTextView"
+                style="@style/NormalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+    </LinearLayout>
+    <View
+        style="@style/Divider" />
+</LinearLayout>

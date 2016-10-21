@@ -29,6 +29,7 @@
 
             containerBuilder.RegisterType<AllRatesViewModel>().As<IAllRatesViewModel>().SingleInstance();
             containerBuilder.RegisterType<SelectedRateViewModel>().As<ISelectedRateViewModel>().SingleInstance();
+            containerBuilder.RegisterType<CalculateViewModel>().As<ICalculateViewModel>().SingleInstance();
 
             Container = containerBuilder.Build();
         }

@@ -7,25 +7,27 @@
     using Android.OS;
     using Android.Support.V7.App;
     using Android.Support.V7.Widget;
+    using Android.Text;
     using Android.Views;
     using Android.Widget;
     using Shared.Interfaces.ViewModels;
 
-    public class CalculateFragment : BaseFragment<IAllRatesViewModel>
+    public class CalculateFragment : BaseFragment<ICalculateViewModel>
     {
-        private ImageView _forexFlagImageView;
+        private EditText _valueEditText;
         private RecyclerView _ratesRecyclerView;
         private RecyclerView.LayoutManager _ratesRecylerViewLayoutManager;
-        private RatesRecyclerAdapter _ratesRecyclerAdapter;
+        private ConvertedRatesRecyclerAdapter _ratesRecyclerAdapter;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
 
             View view = inflater.Inflate(Resource.Layout.fragment_calculate, container, false);
-            this._forexFlagImageView = view.FindViewById<ImageView>(Resource.Id.forexFlagImageView);
-            this._ratesRecyclerView = view.FindViewById<RecyclerView>(Resource.Id.ratesRecyclerView);
+            this._valueEditText = view.FindViewById<EditText>(Resource.Id.valueEditText);
+            this._ratesRecyclerView = view.FindViewById<RecyclerView>(Resource.Id.calculatedRatesRecyclerView);
             this._ratesRecylerViewLayoutManager = new LinearLayoutManager(this.Activity);
+            this._ratesRecyclerView.SetLayoutManager(this._ratesRecylerViewLayoutManager);
 
             return view;
         }
@@ -37,28 +39,38 @@
             ((HomeActivity)this.Activity).SetActionBarTitle(this.GetString(Resource.String.calculateLabel));
 
             this.ViewModel.OnViewModelDataChanged += this.ViewModelDataChanged;
+            this._valueEditText.TextChanged += this.ValueEditTextOnTextChanged;
+        }
 
-            //this.ViewModel.LoadData();
+        private void ValueEditTextOnTextChanged(object sender, TextChangedEventArgs textChangedEventArgs)
+        {
+            this.ViewModel.UpdateData(textChangedEventArgs.Text.ToString().Trim('$'));
         }
 
         public override void OnPause()
         {
             base.OnPause();
 
+            this._ratesRecyclerAdapter = null;
+            this._valueEditText.TextChanged -= this.ValueEditTextOnTextChanged;
             this.ViewModel.OnViewModelDataChanged -= this.ViewModelDataChanged;
         }
 
         private void UpdateViews()
         {
-            this._ratesRecyclerAdapter = new RatesRecyclerAdapter((AppCompatActivity) this.Activity, this.ViewModel.AllRates, i =>
+            if (this._ratesRecyclerAdapter == null)
             {
-                Intent detailsIntent = new Intent(this.Activity, typeof (ExchangeRateDetailsActivity));
-                detailsIntent.PutExtra(Helpers.AndroidConstants.SelectedRateCode, this.ViewModel.AllRates[i].CurrencyCode);
-                this.StartActivity(detailsIntent);
-            });
+                this._ratesRecyclerAdapter = new ConvertedRatesRecyclerAdapter((AppCompatActivity) this.Activity, this.ViewModel.ConvertedRateViewModels);
+                this._ratesRecyclerView.SetAdapter(this._ratesRecyclerAdapter);
+            }
+            else
+            {
+                this._ratesRecyclerAdapter.NotifyDataSetChanged();
+            }
 
-            this._ratesRecyclerView.SetAdapter(this._ratesRecyclerAdapter);
-            this._ratesRecyclerView.SetLayoutManager(this._ratesRecylerViewLayoutManager);
+            this._valueEditText.TextChanged -= this.ValueEditTextOnTextChanged;
+            this._valueEditText.Text = this.ViewModel.DollarValue;
+            this._valueEditText.TextChanged += this.ValueEditTextOnTextChanged;
         }
 
         private void ViewModelDataChanged(object sender, EventArgs eventArgs)
