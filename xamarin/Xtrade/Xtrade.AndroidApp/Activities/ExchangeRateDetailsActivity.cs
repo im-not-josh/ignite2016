@@ -22,7 +22,7 @@
         private TextView _buyChequesTextView;
         private TextView _buyPaymentsTextView;
         private TextView _sellsNotesTextView;
-        private TextView _smallestNotesTextViewextView;
+        private TextView _smallestNotesTextView;
 
         private string _selectedRateCode;
 
@@ -41,7 +41,7 @@
             this._buyChequesTextView = this.FindViewById<TextView>(Resource.Id.buyChequesTextView);
             this._buyPaymentsTextView = this.FindViewById<TextView>(Resource.Id.buyPaymentsTextView);
             this._sellsNotesTextView = this.FindViewById<TextView>(Resource.Id.sellsNotesTextView);
-            this._smallestNotesTextViewextView = this.FindViewById<TextView>(Resource.Id.smallestNoteTextView);
+            this._smallestNotesTextView = this.FindViewById<TextView>(Resource.Id.smallestNoteTextView);
 
             this.SetSupportActionBar(this._applicationToolbar);
             this.SupportActionBar.SetDisplayHomeAsUpEnabled(true);
@@ -132,7 +132,7 @@
             this._buyChequesTextView.Text = this.ViewModel.SelectedRate.BuysCheques.ToString("C");
             this._buyPaymentsTextView.Text = this.ViewModel.SelectedRate.BuysPayments.ToString("C");
             this._sellsNotesTextView.Text = this.ViewModel.SelectedRate.SellsNotes.ToString("C");
-            this._smallestNotesTextViewextView.Text = this.ViewModel.SelectedRate.SmallestNote;
+            this._smallestNotesTextView.Text = this.ViewModel.SelectedRate.SmallestNote;
         }
 
         private void SwipeRefreshLayoutOnRefresh(object sender, EventArgs eventArgs)
