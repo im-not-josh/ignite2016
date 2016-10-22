@@ -24,6 +24,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\Managers\IWebServiceManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\Repository\IXtradeRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ViewModels\ICalculateViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ViewModels\IConvertedRateViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ViewModels\ISelectedRateViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ViewModels\IAllRatesViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\WebServiceManager.cs" />
