@@ -3,6 +3,8 @@ package nz.co.fendustries.xtrade.domain.models;
 import android.database.Cursor;
 import android.provider.BaseColumns;
 
+import nz.co.fendustries.xtrade.helpers.Utilities;
+
 /**
  * Created by joshuafenemore on 21/10/16.
  */
@@ -20,11 +22,15 @@ public class Rate implements Comparable<Rate>
     private String[] asbSells;
     private int rateId;
 
+    public Rate()
+    {
+    }
+
     public Rate(Cursor cursor)
     {
         if (cursor != null)
         {
-            this.rateId =  cursor.getInt(cursor.getColumnIndex(RateModelContract.COLUMN_NAME_RATE_ID));
+            this.rateId =  cursor.getInt(cursor.getColumnIndex(RateModelContract._ID));
             this.currencyCode = cursor.getString(cursor.getColumnIndex(RateModelContract.COLUMN_NAME_RATE_CURRENCY_CODE));
             this.description = cursor.getString(cursor.getColumnIndex(RateModelContract.COLUMN_NAME_RATE_DESCRIPTION));
             this.isFeatured = cursor.getInt(cursor.getColumnIndex(RateModelContract.COLUMN_NAME_RATE_IS_FEATURED)) == 1;
@@ -148,14 +154,13 @@ public class Rate implements Comparable<Rate>
 
     public int compareTo(Rate otherRate)
     {
-        return otherRate.getCurrencyCode().compareToIgnoreCase(this.getCurrencyCode());
+        return this.getCurrencyCode().compareToIgnoreCase(otherRate.getCurrencyCode());
     }
 
     public static abstract class RateModelContract implements BaseColumns
     {
         public static final String TABLE_NAME = "RateModelContract";
 
-        public static final String COLUMN_NAME_RATE_ID = "roomId";
         public static final String COLUMN_NAME_RATE_DESCRIPTION = "description";
         public static final String COLUMN_NAME_RATE_CURRENCY_CODE = "currencyCode";
         public static final String COLUMN_NAME_RATE_IS_FEATURED = "isFeatured";

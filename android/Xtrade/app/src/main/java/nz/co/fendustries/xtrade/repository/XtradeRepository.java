@@ -34,7 +34,6 @@ public class XtradeRepository
             for (Rate rate : rates)
             {
                 ContentValues rateModelDetails = new ContentValues();
-                rateModelDetails.put(Rate.RateModelContract.COLUMN_NAME_RATE_ID, rate.getRateId());
                 rateModelDetails.put(Rate.RateModelContract.COLUMN_NAME_RATE_BUYS_CHEQUES, rate.getBuysCheques());
                 rateModelDetails.put(Rate.RateModelContract.COLUMN_NAME_RATE_BUYS_NOTES, rate.getBuysNotes());
                 rateModelDetails.put(Rate.RateModelContract.COLUMN_NAME_RATE_BUYS_PAYMENTS, rate.getBuysPayments());
@@ -60,7 +59,7 @@ public class XtradeRepository
             SQLiteDatabase database = this.xtradeSQLiteDatabaseHelper.getWritableDatabase();
 
             ContentValues rateModelDetails = new ContentValues();
-            rateModelDetails.put(Rate.RateModelContract.COLUMN_NAME_RATE_ID, rate.getRateId());
+            rateModelDetails.put(Rate.RateModelContract._ID, rate.getRateId());
             rateModelDetails.put(Rate.RateModelContract.COLUMN_NAME_RATE_BUYS_CHEQUES, rate.getBuysCheques());
             rateModelDetails.put(Rate.RateModelContract.COLUMN_NAME_RATE_BUYS_NOTES, rate.getBuysNotes());
             rateModelDetails.put(Rate.RateModelContract.COLUMN_NAME_RATE_BUYS_PAYMENTS, rate.getBuysPayments());

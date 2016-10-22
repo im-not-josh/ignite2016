@@ -6,7 +6,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -32,11 +31,11 @@ import nz.co.fendustries.xtrade.presenters.AllExchangeRatesPresenter;
  */
 public class AllExchangeRatesFragment extends Fragment implements AllExchangeRatesViewContract
 {
-    private TextView _noRatesTextView;
-    private SwipeRefreshLayout _swipeRefreshLayout;
-    private RecyclerView _ratesRecyclerView;
-    private RecyclerView.LayoutManager _ratesRecylerViewLayoutManager;
-    private RatesRecyclerAdapter _ratesRecyclerAdapter;
+    private TextView noRatesTextView;
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private RecyclerView ratesRecyclerView;
+    private RecyclerView.LayoutManager ratesRecylerViewLayoutManager;
+    private RatesRecyclerAdapter ratesRecyclerAdapter;
 
     @Inject
     Lazy<AllExchangeRatesPresenter> allExchangeRatesPresenterLazy;
@@ -49,11 +48,11 @@ public class AllExchangeRatesFragment extends Fragment implements AllExchangeRat
 
         View view = inflater.inflate(R.layout.fragment_all_exchange_rates, container, false);
 
-        this._noRatesTextView = (TextView) view.findViewById(R.id.noRatesTextView);
-        this._swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
-        this._ratesRecyclerView = (RecyclerView) view.findViewById(R.id.ratesRecyclerView);
-        this._ratesRecylerViewLayoutManager = new LinearLayoutManager(this.getActivity());
-        this._ratesRecyclerView.setLayoutManager(this._ratesRecylerViewLayoutManager);
+        this.noRatesTextView = (TextView) view.findViewById(R.id.noRatesTextView);
+        this.swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
+        this.ratesRecyclerView = (RecyclerView) view.findViewById(R.id.ratesRecyclerView);
+        this.ratesRecylerViewLayoutManager = new LinearLayoutManager(this.getActivity());
+        this.ratesRecyclerView.setLayoutManager(this.ratesRecylerViewLayoutManager);
 
         return view;
     }
@@ -65,7 +64,7 @@ public class AllExchangeRatesFragment extends Fragment implements AllExchangeRat
 
     ((HomeActivity)this.getActivity()).setActionBarTitle(this.getString(R.string.allRatesLabel));
 
-    this._swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()
+    this.swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()
     {
         @Override
         public void onRefresh()
@@ -84,10 +83,10 @@ public class AllExchangeRatesFragment extends Fragment implements AllExchangeRat
 
         this.allExchangeRatesPresenterLazy.get().setAllExchangeRatesViewContract(null);
 
-        this._swipeRefreshLayout.setRefreshing(false);
-        this._swipeRefreshLayout.setOnRefreshListener(null);
-        this._swipeRefreshLayout.destroyDrawingCache();
-        this._swipeRefreshLayout.clearAnimation();
+        this.swipeRefreshLayout.setRefreshing(false);
+        this.swipeRefreshLayout.setOnRefreshListener(null);
+        this.swipeRefreshLayout.destroyDrawingCache();
+        this.swipeRefreshLayout.clearAnimation();
     }
 
     @Override
@@ -98,10 +97,10 @@ public class AllExchangeRatesFragment extends Fragment implements AllExchangeRat
             @Override
             public void run()
             {
-                _noRatesTextView.setVisibility(View.GONE);
-                _ratesRecyclerView.setVisibility(View.VISIBLE);
+                noRatesTextView.setVisibility(View.GONE);
+                ratesRecyclerView.setVisibility(View.VISIBLE);
 
-                _ratesRecyclerAdapter = new RatesRecyclerAdapter((AppCompatActivity) getActivity(), allExchangeRatesPresenterLazy.get().getAllRates(), new RecyclerViewItemTapCallback()
+                ratesRecyclerAdapter = new RatesRecyclerAdapter((AppCompatActivity) getActivity(), allExchangeRatesPresenterLazy.get().getAllRates(), new RecyclerViewItemTapCallback()
                 {
                     @Override
                     public void onItemTap(int position)
@@ -112,7 +111,7 @@ public class AllExchangeRatesFragment extends Fragment implements AllExchangeRat
                     }
                 });
 
-                _ratesRecyclerView.setAdapter(_ratesRecyclerAdapter);
+                ratesRecyclerView.setAdapter(ratesRecyclerAdapter);
             }
         });
     }
@@ -120,7 +119,7 @@ public class AllExchangeRatesFragment extends Fragment implements AllExchangeRat
     @Override
     public void showRefreshingView(boolean isRefreshing)
     {
-        this._swipeRefreshLayout.setRefreshing(isRefreshing);
+        this.swipeRefreshLayout.setRefreshing(isRefreshing);
     }
 
     @Override
@@ -140,7 +139,7 @@ public class AllExchangeRatesFragment extends Fragment implements AllExchangeRat
     {
         if (this.isVisible())
         {
-            Snackbar.make(this._ratesRecyclerView, message, Snackbar.LENGTH_LONG).show();
+            Snackbar.make(this.ratesRecyclerView, message, Snackbar.LENGTH_LONG).show();
         }
     }
 
@@ -152,8 +151,8 @@ public class AllExchangeRatesFragment extends Fragment implements AllExchangeRat
             @Override
             public void run()
             {
-                _ratesRecyclerView.setVisibility(View.GONE);
-                _noRatesTextView.setVisibility(View.VISIBLE);
+                ratesRecyclerView.setVisibility(View.GONE);
+                noRatesTextView.setVisibility(View.VISIBLE);
             }
         });
     }
