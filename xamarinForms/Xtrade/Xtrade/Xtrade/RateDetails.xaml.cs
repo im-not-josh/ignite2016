@@ -9,6 +9,7 @@ using Xamarin.Forms;
 namespace Xtrade
 {
     using Shared;
+    using Shared.Domain.Models;
     using Shared.Interfaces.ViewModels;
     using Shared.ViewModels;
 
@@ -16,19 +17,12 @@ namespace Xtrade
 	{
         private SelectedRateViewModel ViewModel => vm ?? (vm = BindingContext as SelectedRateViewModel);
         private SelectedRateViewModel vm;
-        private string selectedCode;
 
-        public RateDetails (string selectedCode)
+        public RateDetails (Rate selectedRate)
 		{
 			InitializeComponent ();
+            BootStrapper.Resolve<ISelectedRateViewModel>().LoadData(selectedRate);
             BindingContext = BootStrapper.Resolve<ISelectedRateViewModel>();
-            this.selectedCode = selectedCode;
-		}
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            ViewModel.LoadData(selectedCode);
         }
     }
 }

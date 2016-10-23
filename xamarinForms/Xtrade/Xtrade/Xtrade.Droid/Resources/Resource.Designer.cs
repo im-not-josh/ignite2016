@@ -3693,18 +3693,6 @@ namespace Xtrade.Droid
 			// aapt resource value: 0x7f0b001a
 			public const int CardView_Light = 2131427354;
 			
-			// aapt resource value: 0x7f0b0179
-			public const int Divider = 2131427705;
-			
-			// aapt resource value: 0x7f0b0176
-			public const int HeaderText = 2131427702;
-			
-			// aapt resource value: 0x7f0b0177
-			public const int LargeText = 2131427703;
-			
-			// aapt resource value: 0x7f0b0178
-			public const int NormalText = 2131427704;
-			
 			// aapt resource value: 0x7f0b0032
 			public const int Platform_AppCompat = 2131427378;
 			
@@ -4365,8 +4353,8 @@ namespace Xtrade.Droid
 			// aapt resource value: 0x7f0b0174
 			public const int Xtrade_Base = 2131427700;
 			
-			// aapt resource value: 0x7f0b017a
-			public const int Xtrade_Toolbar = 2131427706;
+			// aapt resource value: 0x7f0b0176
+			public const int Xtrade_Toolbar = 2131427702;
 			
 			// aapt resource value: 0x7f0b0173
 			public const int XtradeHome = 2131427699;

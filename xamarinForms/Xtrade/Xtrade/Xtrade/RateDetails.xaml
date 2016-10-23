@@ -3,15 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Xtrade.RateDetails"
              Title="Exchange Rate Details">
-  <ContentView>
-	<StackLayout>
-    <StackLayout Orientation="Horizontal">
-      <Image Source="{Binding SelectedRate.ImageSource}" Aspect="AspectFit" />
-      <StackLayout>
-        <Label Text="{Binding SelectedRate.CurrencyCode}" HorizontalTextAlignment="Start" Style="{StaticResource NormalTextStyle}" />
-        <Label Text="{Binding SelectedRate.Description}" HorizontalTextAlignment="End" Style="{StaticResource HeaderTextStyle}" />
+  <ContentPage.Content>
+    <StackLayout Margin="{StaticResource LargePadding}">
+      <StackLayout Orientation="Horizontal">
+        <Image Source="{Binding SelectedRate.ImageSource}" Aspect="AspectFit" />
+        <StackLayout Padding="16, 0, 0, 0">
+          <Label Text="{Binding SelectedRate.CurrencyCode}" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Style="{StaticResource NormalTextStyle}" />
+          <Label Text="{Binding SelectedRate.Description}" HorizontalTextAlignment="Start" Style="{StaticResource HeaderTextStyle}" />
+        </StackLayout>
       </StackLayout>
     </StackLayout>
-  </StackLayout>
-  </ContentView>
+  </ContentPage.Content>
 </ContentPage>

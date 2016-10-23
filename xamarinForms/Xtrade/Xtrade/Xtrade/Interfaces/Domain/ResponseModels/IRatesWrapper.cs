@@ -2,9 +2,10 @@
 {
     using System.Collections.Generic;
     using Models;
+    using Shared.Domain.Models;
 
     public interface IRatesWrapper
     {
-        List<IRate> Value { get; set; }
+        List<Rate> Value { get; set; }
     }
 }

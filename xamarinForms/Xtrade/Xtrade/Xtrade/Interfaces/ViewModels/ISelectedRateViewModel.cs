@@ -3,6 +3,7 @@
     using System;
     using System.Windows.Input;
     using Domain.Models;
+    using Shared.Domain.Models;
 
     public interface ISelectedRateViewModel
     {
@@ -12,9 +13,9 @@
 
         bool IsBusy { get; set; }
 
-        IRate SelectedRate { get; }
+        Rate SelectedRate { get; set; }
 
-        void LoadData(string code);
+        void LoadData(Rate selectedRate);
 
         ICommand RefreshRatesCommand { get; }
     }

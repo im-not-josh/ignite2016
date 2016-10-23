@@ -12,11 +12,6 @@ namespace Xtrade
     {
         private MainPage mainPage;
 
-        public NavigationDrawer()
-        {
-            
-        }
-
 		public NavigationDrawer (MainPage mainPage)
 		{
 		    this.mainPage = mainPage;

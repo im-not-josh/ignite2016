@@ -22,9 +22,17 @@ namespace Xtrade
 
 		    RatesListView.ItemSelected += async (sender, args) =>
 		    {
-		        var rate = RatesListView.SelectedItem as Rate;
-		        await BootStrapper.Resolve<INavigationManager>().PushAsync(Navigation, new RateDetails(rate.CurrencyCode));
-		        RatesListView.SelectedItem = null;
+		        if (RatesListView != null)
+		        {
+		            var rate = RatesListView.SelectedItem as Rate;
+
+		            if (rate != null)
+		            {
+		                await BootStrapper.Resolve<INavigationManager>().PushAsync(Navigation, new RateDetails(rate));
+		            }
+
+		            RatesListView.SelectedItem = null;
+		        }
 		    };
 		}
 
@@ -46,7 +54,11 @@ namespace Xtrade
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-            RatesListView.ItemTapped -= RatesListView_ItemTapped;
+
+            if (RatesListView != null)
+            {
+                RatesListView.ItemTapped -= RatesListView_ItemTapped;
+            }
         }
     }
 }

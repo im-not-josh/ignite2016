@@ -26,5 +26,7 @@
         IList<string> AsbBuys { get; set; }
 
         IList<string> AsbSells { get; set; }
+
+        string ImageSource { get; }
     }
 }

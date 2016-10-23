@@ -3,11 +3,12 @@
     using System.Collections.Generic;
     using Interfaces.Domain.Models;
     using Interfaces.Domain.ResponseModels;
+    using Models;
     using Newtonsoft.Json;
 
     public class RatesWrapper : IRatesWrapper
     {
         [JsonProperty(PropertyName = "value")]
-        public List<IRate> Value { get; set; }
+        public List<Rate> Value { get; set; }
     }
 }

@@ -13,6 +13,7 @@ namespace Xtrade
 		public NavigationPage (Page page) : base(page)
 		{
 		    Title = page.Title;
+		    Icon = page.Icon;
 		}
 
 	    public NavigationPage()

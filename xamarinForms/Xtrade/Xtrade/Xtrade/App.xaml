@@ -16,6 +16,7 @@
       <system:Double x:Key="SmallSpacing">2</system:Double>
       
       <Thickness x:Key="MediumPadding">8</Thickness>
+      <Thickness x:Key="LargePadding">16</Thickness>
     
     <Style x:Key="LargeTextStyle" TargetType="Label">
       <Setter Property="FontSize" Value="{StaticResource LargeTextSize}"></Setter>

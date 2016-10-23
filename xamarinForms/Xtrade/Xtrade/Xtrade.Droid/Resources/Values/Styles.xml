@@ -26,21 +26,9 @@
     <item name="android:statusBarColor">@android:color/transparent</item>
     <item name="android:navigationBarColor">@color/primary_blue_dark</item>
   </style>
-  <style name="HeaderText" parent="@android:attr/textAppearanceSmall">
-    <item name="android:textColor">@color/accent_orange_dark</item>
-    <item name="android:textSize">12sp</item>
-  </style>
-  <style name="LargeText" parent="@android:attr/textAppearanceLarge">
-    <item name="android:textColor">@color/primary_text_black</item>
-    <item name="android:textSize">24sp</item>
-  </style>
-  <style name="NormalText" parent="@android:attr/textAppearanceLarge">
-    <item name="android:textColor">@color/primary_text_black</item>
-    <item name="android:textSize">22sp</item>
-  </style>
-  <style name="Divider">
-    <item name="android:layout_height">1px</item>
-    <item name="android:layout_width">match_parent</item>
-    <item name="android:background">@color/divider_grey</item>
+  <style name="Xtrade.Toolbar" parent="ThemeOverlay.AppCompat.Dark">
+    <item name="android:textColorPrimary">@color/alternatvie_text_white</item>
+    <item name="android:textColorSecondary">@color/alternatvie_text_white</item>
+    <item name="android:background">@color/primary_blue</item>
   </style>
 </resources>
