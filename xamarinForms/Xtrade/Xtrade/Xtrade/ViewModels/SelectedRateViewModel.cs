@@ -54,7 +54,7 @@
 
             if (newRatesResponse != null && newRatesResponse.IsValid() && newRatesResponse.Result.Value != null && newRatesResponse.Result.Value.Count > 0)
             {
-                this._selectedRate = newRatesResponse.Result.Value.FirstOrDefault();
+                this.SelectedRate = newRatesResponse.Result.Value.FirstOrDefault();
                 await this._xtradeRepository.InsertRateAsync(this._selectedRate);
                 this.IsBusy = false;
                 this.OnRefreshSuccess?.Invoke(this, "Rate updated");
