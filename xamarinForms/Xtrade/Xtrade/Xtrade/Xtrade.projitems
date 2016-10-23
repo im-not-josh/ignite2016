@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>dc4d1f90-ec8b-465d-adf6-b840ca5000cd</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Xtrade</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)BootStrapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Calculate.xaml.cs">
+      <DependentUpon>Calculate.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Configuration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Converters\BaseResponseConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Converters\ListConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Converters\RateConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Converters\RatesWrapperConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Models\Rate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\ResponseModels\BaseResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\ResponseModels\RatesWrapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExchangeRates.xaml.cs">
+      <DependentUpon>ExchangeRates.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\Domain\Models\IRate.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\Domain\ResponseModels\IBaseResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\Domain\ResponseModels\IRatesWrapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\Managers\IWebServiceManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\Repository\IXtradeRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ViewModels\IAllRatesViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ViewModels\ICalculateViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ViewModels\IConvertedRateViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ViewModels\ISelectedRateViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MainPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Managers\WebServiceManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NavigationDrawer.xaml.cs">
+      <DependentUpon>NavigationDrawer.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)NavigationItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NavigationPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Repository\XtradeRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\CommonConstants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\ObjectExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\ResponseException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AllRatesViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CalculateViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ConvertedRateViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SelectedRateViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)NavigationDrawer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ExchangeRates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Calculate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
