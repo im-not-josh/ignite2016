@@ -50,7 +50,7 @@
         private async Task RefreshSelectedRate()
         {
             IsBusy = true;
-            IBaseResponse<IRatesWrapper> newRatesResponse = await this._webServiceManager.GetAndParse<IRatesWrapper>("exchange-rates?currecnyCode=" + this._selectedRate.CurrencyCode, new JsonConverter[] { new RateConverter(), new RatesWrapperConverter() });
+            IBaseResponse<IRatesWrapper> newRatesResponse = await this._webServiceManager.GetAndParse<IRatesWrapper>("exchange-rates?currencyCode=" + this._selectedRate.CurrencyCode, new JsonConverter[] { new RateConverter(), new RatesWrapperConverter() });
 
             if (newRatesResponse != null && newRatesResponse.IsValid() && newRatesResponse.Result.Value != null && newRatesResponse.Result.Value.Count > 0)
             {

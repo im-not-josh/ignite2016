@@ -40,15 +40,8 @@
         {
             IList<Rate> allRates = await this._xtradeRepository.GetAllRates();
 
-            if (allRates == null || allRates.Count == 0)
-            {
-                await this.RefreshRates();
-            }
-            else
-            {
-                this.AllRates.ReplaceRange(allRates.OrderedRatesList());
-                this.IsBusy = false;
-            }
+            this.AllRates.ReplaceRange(allRates.OrderedRatesList());
+            await this.RefreshRates();
         }
 
         public ICommand RefreshRatesCommand => new Command(async () => await this.RefreshRates());

@@ -14,6 +14,7 @@
     using Interfaces.Managers;
     using Newtonsoft.Json;
     using Utilities;
+    using Xamarin.Forms;
 
     public class WebServiceManager : IWebServiceManager
     {
@@ -29,11 +30,14 @@
                 webRequest.Method = "GET";
                 webRequest.Accept = "application/json, text/json";
 
-#if __ANDROID__
-                webRequest.UserAgent = "Xtrade-android";
-#else
-                webRequest.UserAgent = "Xtrade-iOS";
-#endif
+                if (Device.OS == TargetPlatform.Android)
+                {
+                    webRequest.UserAgent = "Xtrade-android";
+                }
+                else
+                {
+                    webRequest.UserAgent = "Xtrade-iOS";
+                }
 
                 webRequest.Timeout = Configuration.TimeoutInterval;
                 webRequest.ReadWriteTimeout = Configuration.TimeoutInterval;
@@ -85,11 +89,14 @@
 
             string authenticationToken;
 
-#if __ANDROID__
-            authenticationToken = "l7xxf294806c97a445faa3aa940401e492af";
-#else
-            authenticationToken = "l7xx8573e82a108846e2a5d4bf7631d89e41";
-#endif
+            if (Device.OS == TargetPlatform.Android)
+            {
+                authenticationToken = "l7xxf294806c97a445faa3aa940401e492af";
+            }
+            else
+            {
+                authenticationToken = "l7xx8573e82a108846e2a5d4bf7631d89e41";
+            }
 
             if (!string.IsNullOrWhiteSpace(authenticationToken))
             {
