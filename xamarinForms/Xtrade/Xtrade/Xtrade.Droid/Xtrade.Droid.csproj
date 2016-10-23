@@ -157,6 +157,7 @@
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
     <Compile Include="Renderers\NavigationViewRenderer.cs" />
+    <Compile Include="Renderers\TextInputLayoutRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Snacker.cs" />
@@ -167,6 +168,9 @@
     <AndroidResource Include="Resources\layout\navigation_header_view.axml" />
     <AndroidResource Include="Resources\layout\navigation_view.axml" />
     <AndroidResource Include="Resources\layout\toolbar.axml" />
+    <AndroidResource Include="Resources\layout\text_input_layout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />

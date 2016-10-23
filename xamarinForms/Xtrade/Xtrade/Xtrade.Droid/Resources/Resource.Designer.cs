@@ -2585,11 +2585,11 @@ namespace Xtrade.Droid
 			// aapt resource value: 0x7f08008b
 			public const int navigationView = 2131230859;
 			
-			// aapt resource value: 0x7f08009a
-			public const int navigation_all_exchange_rates = 2131230874;
-			
 			// aapt resource value: 0x7f08009b
-			public const int navigation_calculate = 2131230875;
+			public const int navigation_all_exchange_rates = 2131230875;
+			
+			// aapt resource value: 0x7f08009c
+			public const int navigation_calculate = 2131230876;
 			
 			// aapt resource value: 0x7f08006d
 			public const int navigation_header_container = 2131230829;
@@ -2729,6 +2729,9 @@ namespace Xtrade.Droid
 			// aapt resource value: 0x7f080094
 			public const int text2 = 2131230868;
 			
+			// aapt resource value: 0x7f080099
+			public const int textInputLayout = 2131230873;
+			
 			// aapt resource value: 0x7f08004d
 			public const int textSpacerNoButtons = 2131230797;
 			
@@ -2741,8 +2744,8 @@ namespace Xtrade.Droid
 			// aapt resource value: 0x7f080048
 			public const int title_template = 2131230792;
 			
-			// aapt resource value: 0x7f080099
-			public const int toolbar = 2131230873;
+			// aapt resource value: 0x7f08009a
+			public const int toolbar = 2131230874;
 			
 			// aapt resource value: 0x7f080032
 			public const int top = 2131230770;
@@ -3018,7 +3021,10 @@ namespace Xtrade.Droid
 			public const int support_simple_spinner_dropdown_item = 2130968632;
 			
 			// aapt resource value: 0x7f040039
-			public const int toolbar = 2130968633;
+			public const int text_input_layout = 2130968633;
+			
+			// aapt resource value: 0x7f04003a
+			public const int toolbar = 2130968634;
 			
 			static Layout()
 			{

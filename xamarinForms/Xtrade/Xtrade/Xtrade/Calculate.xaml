@@ -8,7 +8,7 @@
     <StackLayout>
       <StackLayout  Margin="{StaticResource LargePadding}" Orientation="Horizontal">
         <Image Source="flag_nz.png" Aspect="AspectFit" WidthRequest="50" />
-        <Entry Text="{Binding DollarValue, Mode=TwoWay}" Margin="8, 0, 0, 0" x:Name="dollarEntry" Keyboard="Numeric" Placeholder="New Zealand Dollar Value" />
+        <Entry Text="{Binding DollarValue, Mode=TwoWay}" Margin="8, 0, 0, 0" HorizontalOptions="FillAndExpand" x:Name="dollarEntry" Keyboard="Numeric" Placeholder="New Zealand Dollar Value" />
       </StackLayout>
       <BoxView HeightRequest="1" Margin="0, 0, 0, -5" Color="{StaticResource Divider}" />
       <ListView
