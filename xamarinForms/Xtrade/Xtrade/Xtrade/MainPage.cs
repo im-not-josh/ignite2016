@@ -8,7 +8,9 @@ using Xamarin.Forms;
 
 namespace Xtrade
 {
-	public class MainPage : MasterDetailPage
+    using System.Threading.Tasks;
+
+    public class MainPage : MasterDetailPage
 	{
 	    private Dictionary<int, NavigationPage> pages;
 
@@ -18,8 +20,22 @@ namespace Xtrade
             Master = new NavigationDrawer(this);
 
             pages.Add(0, new NavigationPage(new ExchangeRates()));
+            pages.Add(1, new NavigationPage(new Calculate()));
 
 		    Detail = pages[0];
 		}
+
+	    public async Task NavigateAsync(int index)
+	    {
+	        IsPresented = false;
+	        NavigationPage newPage = pages[index];
+
+	        if (Detail == newPage)
+	        {
+	            await newPage.Navigation.PopToRootAsync();
+	        }
+
+	        Detail = newPage;
+	    }
 	}
 }

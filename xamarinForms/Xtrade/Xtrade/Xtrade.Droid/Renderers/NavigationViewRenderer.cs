@@ -59,7 +59,7 @@ namespace Xtrade.Droid.Renderers
                     id = 0;
                     break;
                 case Resource.Id.navigation_calculate:
-                    id = 0;
+                    id = 1;
                     break;
             }
 
