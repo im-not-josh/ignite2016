@@ -56,7 +56,6 @@
             get
             {
                 return this._dollarValue.ToString("C0"); 
-                
             }
             set
             {

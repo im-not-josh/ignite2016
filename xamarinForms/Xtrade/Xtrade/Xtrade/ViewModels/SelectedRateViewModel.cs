@@ -45,7 +45,7 @@
             this._selectedRate = selectedRate;
         }
 
-        public ICommand RefreshRatesCommand => new Command(async () => await this.RefreshSelectedRate());
+        public ICommand RefreshRateCommand => new Command(async () => await this.RefreshSelectedRate());
 
         private async Task RefreshSelectedRate()
         {

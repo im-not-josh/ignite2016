@@ -17,6 +17,6 @@
 
         void LoadData(Rate selectedRate);
 
-        ICommand RefreshRatesCommand { get; }
+        ICommand RefreshRateCommand { get; }
     }
 }
