@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace Xtrade
 {
@@ -14,13 +8,19 @@ namespace Xtrade
 
     public partial class ExchangeRates : ContentPage
     {
-        //private AllRatesViewModel ViewModel => vm ?? (vm = BindingContext as AllRatesViewModel);
-        //private AllRatesViewModel vm;
+        private AllRatesViewModel ViewModel => vm ?? (vm = BindingContext as AllRatesViewModel);
+        private AllRatesViewModel vm;
 
 		public ExchangeRates ()
 		{
 			InitializeComponent ();
-		    //BindingContext = BootStrapper.Resolve<IAllRatesViewModel>();
+		    BindingContext = BootStrapper.Resolve<IAllRatesViewModel>();
 		}
-	}
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ViewModel.LoadData();
+        } 
+    }
 }

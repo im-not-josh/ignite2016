@@ -46,6 +46,10 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)NavigationItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NavigationPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RateCell.xaml.cs">
+      <DependentUpon>RateCell.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Repository\XtradeRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\CommonConstants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\ObjectExtensions.cs" />
@@ -75,6 +79,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Calculate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)RateCell.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

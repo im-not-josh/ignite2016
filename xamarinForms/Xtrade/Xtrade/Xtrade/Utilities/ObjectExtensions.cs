@@ -1,19 +1,21 @@
 ﻿namespace Xtrade.Shared.Utilities
 {
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Linq;
     using Domain.Models;
     using Interfaces.Domain.Models;
     using Interfaces.ViewModels;
+    using MvvmHelpers;
 
     public static class ObjectExtensions
     {
-        public static IList<IRate> OrderedRatesList(this IEnumerable<Rate> listToOrder)
+        public static IEnumerable<IRate> OrderedRatesList(this IEnumerable<Rate> listToOrder)
         {
-            return listToOrder.OrderBy(i => i.CurrencyCode).OfType<IRate>().ToList();
+            return listToOrder.OrderBy(i => i.CurrencyCode);
         }
 
-        public static IList<IRate> OrderedRatesList(this IEnumerable<IRate> listToOrder)
+        public static IEnumerable<IRate> OrderedRatesList(this IEnumerable<IRate> listToOrder)
         {
             return listToOrder.OrderBy(i => i.CurrencyCode).ToList();
         }

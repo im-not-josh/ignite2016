@@ -1,10 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              x:Class="Xtrade.App">
 	<Application.Resources>
 
-		<!-- Application resource dictionary -->
+		<ResourceDictionary>
+      <Color x:Key="Accent">#FF5722</Color>
+      <Color x:Key="PrimaryText">#212121</Color>
+      
+      <system:Double x:Key="SmallTextSize">12</system:Double>
+      <system:Double x:Key="NormalTextSize">22</system:Double>
+      <system:Double x:Key="LargeTextSize">24</system:Double>
+    
+    <Style x:Key="LargeTextStyle" TargetType="Label">
+      <Setter Property="FontSize" Value="{StaticResource LargeTextSize}"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource PrimaryText}"></Setter>
+    </Style>
+    
+    <Style x:Key="NormalTextStyle" TargetType="Label">
+      <Setter Property="FontSize" Value="{StaticResource NormalTextSize}"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource PrimaryText}"></Setter>
+    </Style>
+    
+    </ResourceDictionary>
 
 	</Application.Resources>
 </Application>

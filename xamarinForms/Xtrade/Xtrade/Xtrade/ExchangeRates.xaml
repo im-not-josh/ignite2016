@@ -2,7 +2,23 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pullToRefresh="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
+             xmlns:xtrade="clr-namespace:Xtrade;assembly=Xtrade.Droid"
              x:Class="Xtrade.ExchangeRates"
              Title="Exchange Rates">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+    <ListView 
+      x:Name="RatesListView"
+      HorizontalOptions="FillAndExpand"
+    VerticalOptions="FillAndExpand"
+      ItemsSource="{Binding AllRates}"
+    RefreshCommand="{Binding RefreshRatesCommand}"
+    IsPullToRefreshEnabled="true"
+      IsRefreshing="{Binding IsBusy, Mode=OneWay}">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <xtrade:RateCell />
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>

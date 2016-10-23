@@ -27,6 +27,8 @@
         [JsonProperty(PropertyName = "buysNotes")]
         public decimal BuysNotes { get; set; }
 
+        public string BuysNotesFormatted { get { return BuysNotes.ToString("C"); } }
+
         [JsonProperty(PropertyName = "buysCheques")]
         public decimal BuysCheques { get; set; }
 
@@ -35,6 +37,8 @@
 
         [JsonProperty(PropertyName = "sellsNotes")]
         public decimal SellsNotes { get; set; }
+
+        public string SellsNotesFormatted { get { return SellsNotes.ToString("C"); } }
 
         [JsonProperty(PropertyName = "asbBuys")]
         [Ignore]
