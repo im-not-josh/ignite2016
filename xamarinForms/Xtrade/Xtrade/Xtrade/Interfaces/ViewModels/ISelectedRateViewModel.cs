@@ -7,9 +7,7 @@
 
     public interface ISelectedRateViewModel
     {
-        event EventHandler<string> OnRefreshError;
-
-        event EventHandler<string> OnRefreshSuccess;
+        event EventHandler<string> OnRefreshFinish;
 
         bool IsBusy { get; set; }
 

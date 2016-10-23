@@ -9,9 +9,7 @@
 
     public interface IAllRatesViewModel
     {
-        event EventHandler<string> OnRefreshError;
-
-        event EventHandler<string> OnRefreshSuccess;
+        event EventHandler<string> OnRefreshFinish;
 
         ObservableRangeCollection<IRate> AllRates { get; }
 

@@ -4,6 +4,7 @@ namespace Xtrade.AndroidApp
 {
     using System;
     using Android.OS;
+    using Plugin.CurrentActivity;
 
 #if DEBUG
     [Application(Debuggable = true, Theme = "@style/Xtrade")]
@@ -30,6 +31,7 @@ namespace Xtrade.AndroidApp
 
         public void OnActivityCreated(Activity activity, Bundle savedInstanceState)
         {
+            CrossCurrentActivity.Current.Activity = activity;
         }
 
         public void OnActivityDestroyed(Activity activity)
@@ -44,7 +46,7 @@ namespace Xtrade.AndroidApp
 
         public void OnActivityResumed(Activity activity)
         {
-            
+            CrossCurrentActivity.Current.Activity = activity;
         }
 
         public void OnActivitySaveInstanceState(Activity activity, Bundle outState)
@@ -54,9 +56,11 @@ namespace Xtrade.AndroidApp
 
         public void OnActivityStarted(Activity activity)
         {
-            
+            CrossCurrentActivity.Current.Activity = activity;
         }
+
         public void OnActivityStopped(Activity activity)
-        { }
+        {
+        }
     }
 }

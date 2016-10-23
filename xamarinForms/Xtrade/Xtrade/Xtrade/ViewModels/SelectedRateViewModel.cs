@@ -28,9 +28,7 @@
             this._selectedRate = null;
         }
 
-        public event EventHandler<string> OnRefreshError;
-
-        public event EventHandler<string> OnRefreshSuccess;
+        public event EventHandler<string> OnRefreshFinish;
 
         private Rate _selectedRate;
 
@@ -57,12 +55,12 @@
                 this.SelectedRate = newRatesResponse.Result.Value.FirstOrDefault();
                 await this._xtradeRepository.InsertRateAsync(this._selectedRate);
                 this.IsBusy = false;
-                this.OnRefreshSuccess?.Invoke(this, "Rate updated");
+                this.OnRefreshFinish?.Invoke(this, "Rate updated");
             }
             else
             {
                 this.IsBusy = false;
-                this.OnRefreshError?.Invoke(this, "Could not refresh exchange rate");
+                this.OnRefreshFinish?.Invoke(this, "Could not refresh exchange rate");
             }
         }
     }

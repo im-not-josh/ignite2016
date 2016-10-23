@@ -30,9 +30,7 @@
             this.AllRates = new ObservableRangeCollection<IRate>();
         }
 
-        public event EventHandler<string> OnRefreshError;
-
-        public event EventHandler<string> OnRefreshSuccess;
+        public event EventHandler<string> OnRefreshFinish;
 
         public ObservableRangeCollection<IRate> AllRates { get; }
 
@@ -56,12 +54,12 @@
                 this.AllRates.ReplaceRange(newRatesResponse.Result.Value.OrderedRatesList());
                 await this._xtradeRepository.InsertRatesAsync(this.AllRates);
                 this.IsBusy = false;
-                this.OnRefreshSuccess?.Invoke(this, "Rates updated");
+                this.OnRefreshFinish?.Invoke(this, "Rates updated");
             }
             else
             {
                 this.IsBusy = false;
-                this.OnRefreshError?.Invoke(this, "Could not refresh exchange rates");
+                this.OnRefreshFinish?.Invoke(this, "Could not refresh exchange rates");
             }
         }
     }

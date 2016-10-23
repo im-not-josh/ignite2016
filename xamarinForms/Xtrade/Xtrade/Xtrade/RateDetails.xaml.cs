@@ -8,6 +8,7 @@ using Xamarin.Forms;
 
 namespace Xtrade
 {
+    using Managers;
     using Shared;
     using Shared.Domain.Models;
     using Shared.Interfaces.ViewModels;
@@ -23,6 +24,26 @@ namespace Xtrade
 			InitializeComponent ();
             BootStrapper.Resolve<ISelectedRateViewModel>().LoadData(selectedRate);
             BindingContext = BootStrapper.Resolve<ISelectedRateViewModel>();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ViewModel.OnRefreshFinish += ViewModel_OnRefreshSuccess;
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            ViewModel.OnRefreshFinish -= ViewModel_OnRefreshSuccess;
+        }
+
+        private void ViewModel_OnRefreshSuccess(object sender, string e)
+        {
+            if (Device.OS == TargetPlatform.Android)
+            {
+                DependencyService.Get<ISnacker>().ShowSnack(e);
+            }
         }
     }
 }

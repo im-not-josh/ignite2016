@@ -44,6 +44,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ViewModels\IConvertedRateViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ViewModels\ISelectedRateViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Managers\ISnacker.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\NavigationManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\WebServiceManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NavigationDrawer.xaml.cs">

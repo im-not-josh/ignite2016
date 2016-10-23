@@ -3,6 +3,7 @@
 namespace Xtrade
 {
     using Interfaces.Managers;
+    using Managers;
     using Shared;
     using Shared.Domain.Models;
     using Shared.Interfaces.ViewModels;
@@ -49,11 +50,21 @@ namespace Xtrade
         {
             base.OnAppearing();
             ViewModel.LoadData();
+            ViewModel.OnRefreshFinish += ViewModel_OnRefreshSuccess;
+        }
+
+        private void ViewModel_OnRefreshSuccess(object sender, string e)
+        {
+            if (Device.OS == TargetPlatform.Android)
+            {
+                DependencyService.Get<ISnacker>().ShowSnack(e);
+            }
         }
 
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
+            ViewModel.OnRefreshFinish -= ViewModel_OnRefreshSuccess;
 
             if (RatesListView != null)
             {
