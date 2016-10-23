@@ -58,7 +58,6 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Repository\XtradeRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\CommonConstants.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Utilities\ImageResourceExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\ObjectExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\ResponseException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AllRatesViewModel.cs" />

@@ -28,5 +28,13 @@
         IList<string> AsbSells { get; set; }
 
         string ImageSource { get; }
+
+        string BuysNotesFormatted { get; }
+
+        string BuysChequesFormatted { get; }
+
+        string BuysPaymentsFormatted { get; }
+
+        string SellsNotesFormatted { get; }
     }
 }
