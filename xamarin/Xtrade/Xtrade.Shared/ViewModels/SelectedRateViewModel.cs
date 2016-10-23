@@ -45,7 +45,7 @@
         public async void RefreshSelectedRate()
         {
             this.IsDataRefreshing = true;
-            IBaseResponse<IRatesWrapper> newRatesResponse = await this._webServiceManager.GetAndParse<IRatesWrapper>("exchange-rates?currecnyCode=" + this._selectedRateCode, new JsonConverter[] { new RateConverter(), new RatesWrapperConverter() });
+            IBaseResponse<IRatesWrapper> newRatesResponse = await this._webServiceManager.GetAndParse<IRatesWrapper>("exchange-rates?currencyCode=" + this._selectedRateCode, new JsonConverter[] { new RateConverter(), new RatesWrapperConverter() });
 
             if (newRatesResponse != null && newRatesResponse.IsValid() && newRatesResponse.Result.Value != null && newRatesResponse.Result.Value.Count > 0)
             {

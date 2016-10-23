@@ -41,16 +41,10 @@
 
             IList<Rate> allRates = await this._xtradeRepository.GetAllRates();
 
-            if (allRates == null || allRates.Count == 0)
-            {
-                this.RefreshRates();
-            }
-            else
-            {
-                this.AllRates = allRates.OrderedRatesList();
-                this.IsDataRefreshing = false;
-                this.OnViewModelDataChanged?.Invoke(this, null);
-            }
+            this.AllRates = allRates.OrderedRatesList();
+            this.IsDataRefreshing = false;
+            this.OnViewModelDataChanged?.Invoke(this, null);
+            this.RefreshRates();
         }
 
         public async void RefreshRates()
