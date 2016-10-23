@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xtrade.ConvertedRateCell">
+  <Grid Margin="{StaticResource MediumPadding}">
+    <Grid.RowDefinitions>
+      <RowDefinitionCollection>
+        <RowDefinition Height="Auto" />
+      </RowDefinitionCollection>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinitionCollection>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="Auto" />
+      </ColumnDefinitionCollection>
+    </Grid.ColumnDefinitions>
+    <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Source="{Binding ImageSource}" Aspect="AspectFit" />
+    <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" Text="{Binding Code}" HorizontalTextAlignment="Start" Style="{StaticResource LargeTextStyle}" />
+    <Label Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Text="{Binding ConvertedRate}" HorizontalTextAlignment="Start" Style="{StaticResource LargeTextStyle}" />
+  </Grid>
+</ContentView>

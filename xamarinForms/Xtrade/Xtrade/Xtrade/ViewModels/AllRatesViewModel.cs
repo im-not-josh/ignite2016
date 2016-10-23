@@ -34,7 +34,7 @@
 
         public event EventHandler<string> OnRefreshSuccess;
 
-        public ObservableRangeCollection<IRate> AllRates { get; } = new ObservableRangeCollection<IRate>();
+        public ObservableRangeCollection<IRate> AllRates { get; }
 
         public async void LoadData()
         {

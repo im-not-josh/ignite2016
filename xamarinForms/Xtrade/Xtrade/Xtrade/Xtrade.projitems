@@ -18,6 +18,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Configuration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConvertedRateCell.xaml.cs">
+      <DependentUpon>ConvertedRateCell.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Domain\Converters\BaseResponseConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Domain\Converters\ListConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Domain\Converters\RateConverter.cs" />
@@ -97,6 +101,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)RateDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ConvertedRateCell.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

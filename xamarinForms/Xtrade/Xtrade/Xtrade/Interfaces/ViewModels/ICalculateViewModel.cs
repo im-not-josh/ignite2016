@@ -2,16 +2,15 @@
 {
     using System;
     using System.Collections.Generic;
+    using MvvmHelpers;
     using Shared.ViewModels;
 
     public interface ICalculateViewModel
     {
-        IList<IConvertedRateViewModel> ConvertedRateViewModels { get; }
+        ObservableRangeCollection<IConvertedRateViewModel> ConvertedRateViewModels { get; }
 
-        event EventHandler OnViewModelDataChanged;
+        void UpdateData();
 
-        void UpdateData(string newValue);
-
-        string DollarValue { get; }
+        string DollarValue { get; set; }
     }
 }

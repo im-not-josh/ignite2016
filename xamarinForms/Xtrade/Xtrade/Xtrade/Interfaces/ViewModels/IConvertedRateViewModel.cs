@@ -7,5 +7,7 @@
         string ConvertedRate { get; set; }
 
         decimal SellRate { get; set; }
+
+        string ImageSource { get; }
     }
 }

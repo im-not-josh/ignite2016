@@ -1,7 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xtrade="clr-namespace:Xtrade;assembly=Xtrade.Droid"
              x:Class="Xtrade.Calculate"
              Title="Calculate">
-	<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+  <ContentPage.Content>
+    <StackLayout>
+      <StackLayout  Margin="{StaticResource LargePadding}" Orientation="Horizontal">
+        <Image Source="flag_nz.png" Aspect="AspectFit" WidthRequest="50" />
+        <Entry Text="{Binding DollarValue, Mode=TwoWay}" Margin="8, 0, 0, 0" x:Name="dollarEntry" Keyboard="Numeric" Placeholder="New Zealand Dollar Value" />
+      </StackLayout>
+      <BoxView HeightRequest="1" Margin="0, 0, 0, -5" Color="{StaticResource Divider}" />
+      <ListView
+      x:Name="CalculatedRatesListView"
+      ItemsSource="{Binding ConvertedRateViewModels}"
+    IsPullToRefreshEnabled="false"
+      HasUnevenRows="true">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <xtrade:ConvertedRateCell />
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+  </ContentPage.Content>
 </ContentPage>
