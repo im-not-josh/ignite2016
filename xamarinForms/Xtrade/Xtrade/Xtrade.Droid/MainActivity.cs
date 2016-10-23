@@ -14,12 +14,10 @@ namespace Xtrade.Droid
 	{
 		protected override void OnCreate (Bundle bundle)
 		{
-			base.OnCreate (bundle);
-
-		    ToolbarResource = Resource.Layout.toolbar;
+            ToolbarResource = Resource.Layout.toolbar;
+            base.OnCreate (bundle);
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
-            
             
 			LoadApplication (new Xtrade.App ());
 		}

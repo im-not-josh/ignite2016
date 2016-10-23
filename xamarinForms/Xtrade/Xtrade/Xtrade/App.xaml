@@ -9,6 +9,7 @@
       <Color x:Key="Accent">#FF5722</Color>
       <Color x:Key="PrimaryText">#212121</Color>
       <Color x:Key="Divider">#BDBDBD</Color>
+      <Color x:Key="BackButton">#FFFFFF</Color>
       
       <system:Double x:Key="SmallTextSize">12</system:Double>
       <system:Double x:Key="NormalTextSize">22</system:Double>
