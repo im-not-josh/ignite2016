@@ -27,7 +27,6 @@ namespace Xtrade
 
         private async void NavigationItemOnNavigationItemSelected(object sender, NavigationItem.NavigationItemSelectedEventArgs args)
         {
-            await Task.Delay(255);
             await this.mainPage.NavigateAsync(args.Index);
         }
     }

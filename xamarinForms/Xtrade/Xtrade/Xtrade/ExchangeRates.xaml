@@ -5,20 +5,21 @@
              xmlns:xtrade="clr-namespace:Xtrade;assembly=Xtrade.Droid"
              x:Class="Xtrade.ExchangeRates"
              Title="Exchange Rates">
+  <ContentPage.Content>
     <ListView 
       x:Name="RatesListView"
-      HorizontalOptions="FillAndExpand"
-    VerticalOptions="FillAndExpand"
       ItemsSource="{Binding AllRates}"
     RefreshCommand="{Binding RefreshRatesCommand}"
     IsPullToRefreshEnabled="true"
+      HasUnevenRows="true"
       IsRefreshing="{Binding IsBusy, Mode=OneWay}">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
-            <xtrade:RateCell />
+            <xtrade:RateCellView />
           </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>
     </ListView>
+  </ContentPage.Content>
 </ContentPage>

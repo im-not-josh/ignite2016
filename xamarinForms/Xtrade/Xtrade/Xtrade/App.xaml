@@ -12,6 +12,10 @@
       <system:Double x:Key="SmallTextSize">12</system:Double>
       <system:Double x:Key="NormalTextSize">22</system:Double>
       <system:Double x:Key="LargeTextSize">24</system:Double>
+
+      <system:Double x:Key="SmallSpacing">2</system:Double>
+      
+      <Thickness x:Key="MediumPadding">8</Thickness>
     
     <Style x:Key="LargeTextStyle" TargetType="Label">
       <Setter Property="FontSize" Value="{StaticResource LargeTextSize}"></Setter>
@@ -21,6 +25,11 @@
     <Style x:Key="NormalTextStyle" TargetType="Label">
       <Setter Property="FontSize" Value="{StaticResource NormalTextSize}"></Setter>
       <Setter Property="TextColor" Value="{StaticResource PrimaryText}"></Setter>
+    </Style>
+    
+    <Style x:Key="HeaderTextStyle" TargetType="Label">
+      <Setter Property="FontSize" Value="{StaticResource SmallTextSize}"></Setter>
+      <Setter Property="TextColor" Value="{StaticResource Accent}"></Setter>
     </Style>
     
     </ResourceDictionary>

@@ -32,6 +32,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\Domain\Models\IRate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\Domain\ResponseModels\IBaseResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\Domain\ResponseModels\IRatesWrapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\Managers\INavigationManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\Managers\IWebServiceManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\Repository\IXtradeRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ViewModels\IAllRatesViewModel.cs" />
@@ -39,6 +40,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ViewModels\IConvertedRateViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ViewModels\ISelectedRateViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Managers\NavigationManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\WebServiceManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NavigationDrawer.xaml.cs">
       <DependentUpon>NavigationDrawer.xaml</DependentUpon>
@@ -50,8 +52,13 @@
       <DependentUpon>RateCell.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)RateDetails.xaml.cs">
+      <DependentUpon>RateDetails.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Repository\XtradeRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\CommonConstants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\ImageResourceExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\ObjectExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\ResponseException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AllRatesViewModel.cs" />
@@ -85,6 +92,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)RateCell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)RateDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

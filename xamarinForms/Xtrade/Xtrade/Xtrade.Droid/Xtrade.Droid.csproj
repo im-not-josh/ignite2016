@@ -362,16 +362,16 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_navigation_menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Values-v21\Styles.xml" />
+    <AndroidResource Include="Resources\values-v21\Styles.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Values\Styles.xml" />
+    <AndroidResource Include="Resources\values\Styles.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Values\Colors.xml" />
+    <AndroidResource Include="Resources\values\Colors.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Values\Strings.xml" />
+    <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher.png" />

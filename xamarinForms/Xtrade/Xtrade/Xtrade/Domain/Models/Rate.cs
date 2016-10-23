@@ -15,6 +15,8 @@
         [JsonProperty(PropertyName = "currencyCode")]
         public string CurrencyCode { get; set; }
 
+        public string ImageSource { get { return "flag_" + this.CurrencyCode.ToLower() + ".png"; } }
+
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
 

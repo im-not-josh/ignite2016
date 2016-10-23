@@ -12,6 +12,8 @@
     using Interfaces.Managers;
     using Managers;
     using ViewModels;
+    using Xtrade.Interfaces.Managers;
+    using Xtrade.Managers;
 
     public class BootStrapper
     {
@@ -26,6 +28,7 @@
 
             containerBuilder.RegisterType<XtradeRepository>().As<IXtradeRepository>().SingleInstance();
             containerBuilder.RegisterType<WebServiceManager>().As<IWebServiceManager>().SingleInstance();
+            containerBuilder.RegisterType<NavigationManager>().As<INavigationManager>().SingleInstance();
 
             containerBuilder.RegisterType<AllRatesViewModel>().As<IAllRatesViewModel>().SingleInstance();
             containerBuilder.RegisterType<SelectedRateViewModel>().As<ISelectedRateViewModel>().SingleInstance();

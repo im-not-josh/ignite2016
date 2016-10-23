@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xtrade.RateDetails"
+             Title="Exchange Rate Details">
+  <ContentView>
+	<StackLayout>
+    <StackLayout Orientation="Horizontal">
+      <Image Source="{Binding SelectedRate.ImageSource}" Aspect="AspectFit" />
+      <StackLayout>
+        <Label Text="{Binding SelectedRate.CurrencyCode}" HorizontalTextAlignment="Start" Style="{StaticResource NormalTextStyle}" />
+        <Label Text="{Binding SelectedRate.Description}" HorizontalTextAlignment="End" Style="{StaticResource HeaderTextStyle}" />
+      </StackLayout>
+    </StackLayout>
+  </StackLayout>
+  </ContentView>
+</ContentPage>

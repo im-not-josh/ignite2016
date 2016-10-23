@@ -50,6 +50,7 @@ namespace Xtrade.Droid.Renderers
             }
 
             navigationView.SetCheckedItem(navigationItemSelectedEventArgs.MenuItem.ItemId);
+            navigationItemSelectedEventArgs.MenuItem.SetChecked(true);
             selectedItem = navigationItemSelectedEventArgs.MenuItem;
 
             int id = 0;

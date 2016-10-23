@@ -8,11 +8,11 @@ using Xamarin.Forms;
 
 namespace Xtrade
 {
-	public partial class RateCell : ContentView
-	{
-		public RateCell ()
-		{
-			InitializeComponent ();
-		}
-	}
+    public partial class RateCellView : ContentView
+    {
+        public RateCellView()
+        {
+            InitializeComponent();
+        }
+    }
 }
