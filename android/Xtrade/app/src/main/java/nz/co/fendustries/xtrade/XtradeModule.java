@@ -123,7 +123,26 @@ public class XtradeModule
         }
         else
         {
-            return new OkHttpClient.Builder().connectTimeout(CONNECT_TIMEOUT_SECONDS, TimeUnit.SECONDS).readTimeout(READ_TIMEOUT_SECONDS, TimeUnit.SECONDS).writeTimeout(WRITE_TIMEOUT_SECONDS, TimeUnit.SECONDS).build();
+            Interceptor interceptor = new Interceptor()
+            {
+                @Override
+                public Response intercept(Chain chain) throws IOException
+                {
+                    Request.Builder requestBuilder = chain.request().newBuilder().header("apikey", AUTHENTICATION_TOKEN);
+
+                    Request request = requestBuilder.build();
+
+                    Response response = chain.proceed(request);
+
+                    String responseBody = response.body().string();
+
+                    return response.newBuilder()
+                            .body(ResponseBody.create(response.body().contentType(), responseBody))
+                            .build();
+                }
+            };
+
+            return new OkHttpClient.Builder().connectTimeout(CONNECT_TIMEOUT_SECONDS, TimeUnit.SECONDS).readTimeout(READ_TIMEOUT_SECONDS, TimeUnit.SECONDS).writeTimeout(WRITE_TIMEOUT_SECONDS, TimeUnit.SECONDS).addInterceptor(interceptor).build();
         }
     }
 
