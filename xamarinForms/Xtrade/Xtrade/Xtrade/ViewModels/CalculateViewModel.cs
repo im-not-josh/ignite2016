@@ -35,13 +35,13 @@
             if (this.ConvertedRateViewModels.Count == 0)
             {
                 IList<Rate> rates = await this._xtradeRepository.GetAllRates();
-
+                IList<ConvertedRateViewModel> convertedRates = new List<ConvertedRateViewModel>();
                 foreach (Rate rate in rates)
                 {
-                    this.ConvertedRateViewModels.Add(new ConvertedRateViewModel() { Code = rate.CurrencyCode, SellRate = rate.SellsNotes });
+                    convertedRates.Add(new ConvertedRateViewModel() { Code = rate.CurrencyCode, SellRate = rate.SellsNotes });
                 }
 
-                this.ConvertedRateViewModels.ReplaceRange(this.ConvertedRateViewModels.OrderedRatesList());
+                this.ConvertedRateViewModels.ReplaceRange(convertedRates.OrderedRatesList());
             }
             
             foreach (IConvertedRateViewModel convertedRateViewModel in this.ConvertedRateViewModels)
