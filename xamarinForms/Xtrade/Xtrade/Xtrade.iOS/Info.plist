@@ -8,9 +8,9 @@
 		<integer>2</integer>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false />
+	<false/>
 	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleLigtContent</string>
+	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -54,5 +54,26 @@
 	<string>LaunchScreen.storyboard</string>
 	<key>CFBundleName</key>
 	<string>Xtrade</string>
+	<key>CFBundleShortVersionString</key>
+	<string></string>
+	<key>UIStatusBarTintParameters</key>
+	<dict>
+		<key>UINavigationBar</key>
+		<dict>
+			<key>Style</key>
+			<string>UIBarStyleDefault</string>
+			<key>Translucent</key>
+			<false/>
+			<key>TintColor</key>
+			<dict>
+				<key>Red</key>
+				<real>1</real>
+				<key>Green</key>
+				<real>1</real>
+				<key>Blue</key>
+				<real>1</real>
+			</dict>
+		</dict>
+	</dict>
 </dict>
 </plist>
