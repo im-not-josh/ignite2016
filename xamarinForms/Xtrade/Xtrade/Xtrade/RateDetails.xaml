@@ -6,9 +6,10 @@
              Title="Exchange Rate Details"
              NavigationPage.BackButtonTitle="Back"
              BackgroundColor="{StaticResource BackButton}">
-  <ContentPage.Content>
-    <pullToRefresh:PullToRefreshLayout Margin="{StaticResource LargePadding}"
+  <pullToRefresh:PullToRefreshLayout Margin="{StaticResource LargePadding}"
       IsPullToRefreshEnabled="true"
+                                       VerticalOptions="FillAndExpand"
+                                       HorizontalOptions="FillAndExpand"
       RefreshCommand="{Binding RefreshRateCommand}"
       IsRefreshing="{Binding IsBusy}">
     <StackLayout >
@@ -32,5 +33,4 @@
       <Label Text="Smallest Note" HorizontalTextAlignment="Start" Margin="0, -5, 0, 8" Style="{StaticResource HeaderTextStyle}" />
     </StackLayout>
     </pullToRefresh:PullToRefreshLayout>
-  </ContentPage.Content>
 </ContentPage>
