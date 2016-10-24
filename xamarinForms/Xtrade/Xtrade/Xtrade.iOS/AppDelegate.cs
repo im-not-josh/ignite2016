@@ -22,6 +22,14 @@ namespace Xtrade.iOS
 		//
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
+		    var tint = UIColor.FromRGB(21,101,192);
+
+		    UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(255,255,255);
+		    UINavigationBar.Appearance.TintColor = tint;
+		    UIBarButtonItem.Appearance.TintColor = tint;
+		    UITabBar.Appearance.TintColor = tint;
+            
+
 			global::Xamarin.Forms.Forms.Init ();
 			LoadApplication (new Xtrade.App ());
 

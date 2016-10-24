@@ -16,10 +16,11 @@ namespace Xtrade
 		    switch (Device.OS)
 		    {
 		        case TargetPlatform.Android:
-                    MainPage = new Xtrade.MainPage();
+                    MainPage = new Xtrade.AndroidMainPage();
                     break;
                 default:
-                    throw new NotImplementedException();
+                    MainPage = new NavigationPage(new MainPageiOS());
+                    break;
             }
 			
 		}

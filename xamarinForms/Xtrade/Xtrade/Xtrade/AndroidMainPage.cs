@@ -10,11 +10,11 @@ namespace Xtrade
 {
     using System.Threading.Tasks;
 
-    public class MainPage : MasterDetailPage
+    public class AndroidMainPage : MasterDetailPage
 	{
 	    private Dictionary<int, NavigationPage> pages;
 
-		public MainPage()
+		public AndroidMainPage()
 		{
 			pages = new Dictionary<int, NavigationPage>();
             Master = new NavigationDrawer(this);

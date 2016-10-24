@@ -10,9 +10,9 @@ namespace Xtrade
 {
     public partial class NavigationDrawer : ContentPage
     {
-        private MainPage mainPage;
+        private AndroidMainPage mainPage;
 
-		public NavigationDrawer (MainPage mainPage)
+		public NavigationDrawer (AndroidMainPage mainPage)
 		{
 		    this.mainPage = mainPage;
 			InitializeComponent ();

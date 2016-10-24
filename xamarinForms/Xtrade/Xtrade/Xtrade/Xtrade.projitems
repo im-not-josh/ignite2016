@@ -43,7 +43,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ViewModels\ICalculateViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ViewModels\IConvertedRateViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ViewModels\ISelectedRateViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)MainPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AndroidMainPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MainPageiOS.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\ISnacker.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\NavigationManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Managers\WebServiceManager.cs" />
