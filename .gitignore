@@ -244,3 +244,4 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 xamarin/Xtrade/Xtrade.AndroidApp/Resources/Resource.Designer.cs
+xamarinForms/Xtrade/Xtrade/Xtrade.Droid/Resources/Resource.Designer.cs

@@ -14,11 +14,20 @@ namespace Xtrade
 		{
 		    Title = page.Title;
 		    Icon = page.Icon;
-		}
+            this.init();
+        }
 
 	    public NavigationPage()
 	    {
-	        
+	        this.init();
+	    }
+
+	    private void init()
+	    {
+	        if (Device.OS == TargetPlatform.iOS)
+	        {
+	            BarTextColor = Color.White;
+	        }
 	    }
 	}
 }
