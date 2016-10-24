@@ -7,6 +7,10 @@
 		<integer>1</integer>
 		<integer>2</integer>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false />
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLigtContent</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

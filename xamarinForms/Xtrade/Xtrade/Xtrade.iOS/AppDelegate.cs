@@ -27,7 +27,6 @@ namespace Xtrade.iOS
 		    var tint = UIColor.FromRGB(21,101,192);
 
 		    UINavigationBar.Appearance.BarTintColor = tint;
-		    UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, false);
             UINavigationBar.Appearance.TintColor = UIColor.White;
 		    UIBarButtonItem.Appearance.TintColor = tint;
 		    UITabBar.Appearance.TintColor = tint;
