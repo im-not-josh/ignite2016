@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X5k-f2-b5h">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
@@ -21,7 +21,7 @@
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.20392156862745098" green="0.59607843137254901" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" colorSpace="calibratedRGB" red="0.082352941176470587" green="0.396078431372549" blue="0.75294117647058822" alpha="1"/>
                         <constraints>
                             <constraint firstItem="23" firstAttribute="centerY" secondItem="yd7-JS-zBw" secondAttribute="centerY" priority="1" id="39"/>
                             <constraint firstItem="23" firstAttribute="centerX" secondItem="yd7-JS-zBw" secondAttribute="centerX" priority="1" id="41"/>
@@ -34,6 +34,33 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icon-60@2x.png" width="180" height="180"/>
+        <image name="Default-568h.png" width="320" height="568"/>
+        <image name="Default-Portrait.png" width="768" height="1004"/>
+        <image name="Default.png" width="320" height="480"/>
+        <image name="flag_aud.png" width="42" height="25"/>
+        <image name="flag_cad.png" width="42" height="25"/>
+        <image name="flag_chf.png" width="42" height="25"/>
+        <image name="flag_dkk.png" width="42" height="25"/>
+        <image name="flag_eur.png" width="42" height="25"/>
+        <image name="flag_fjd.png" width="42" height="25"/>
+        <image name="flag_gbp.png" width="42" height="25"/>
+        <image name="flag_hkd.png" width="42" height="25"/>
+        <image name="flag_inr.png" width="42" height="25"/>
+        <image name="flag_jpy.png" width="42" height="25"/>
+        <image name="flag_nok.png" width="42" height="25"/>
+        <image name="flag_nz.png" width="666.6667" height="333.333344"/>
+        <image name="flag_php.png" width="42" height="25"/>
+        <image name="flag_sek.png" width="42" height="25"/>
+        <image name="flag_sgd.png" width="42" height="25"/>
+        <image name="flag_thb.png" width="42" height="25"/>
+        <image name="flag_top.png" width="42" height="25"/>
+        <image name="flag_usd.png" width="42" height="25"/>
+        <image name="flag_wst.png" width="42" height="25"/>
+        <image name="flag_xpf.png" width="42" height="25"/>
+        <image name="flag_zar.png" width="42" height="25"/>
+        <image name="Icon-60.png" width="60" height="60"/>
+        <image name="Icon-76.png" width="76" height="76"/>
+        <image name="Icon-Small-40.png" width="40" height="40"/>
+        <image name="Icon-Small.png" width="29" height="29"/>
     </resources>
 </document>
